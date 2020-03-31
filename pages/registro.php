@@ -32,7 +32,6 @@
 
                 <div class="input-form">
                     <label for="nacionalidade">País de origem</label>
-                    
                     <select name=Pais>
                         <?php include("lista-paises.html"); ?>
                     </select>

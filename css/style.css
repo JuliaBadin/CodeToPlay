@@ -99,6 +99,10 @@ h1, h2, h6{
 
     background-color: rgba(250, 180, 41, 0.1);
 }
+.modal select{
+    width: 100%;
+    margin: 0;
+}
 .modal input:focus, select:focus{
     border-bottom: 2px solid #F9B328;
 }
