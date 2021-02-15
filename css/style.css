@@ -12,7 +12,7 @@ h1, h2, h6{
 .button{
     background: #c4e538;
     color: #fff;
-    
+
     cursor: pointer;
     outline: none;
     border: none;
@@ -23,7 +23,7 @@ h1, h2, h6{
 
     font-size: 16px;
 }
-.button:hover, 
+.button:hover,
 .modal #submit:hover,
 .modal .button:hover
 {
@@ -55,7 +55,7 @@ h1, h2, h6{
     right: 0;
     left: 0;
     margin: auto;
-    
+
     min-width: 300px;
     max-width: 38vw;
     min-height: 350px;
@@ -127,7 +127,7 @@ h1, h2, h6{
 }
 .modal .button{
     background: #c4e538;
-    
+
     cursor: pointer;
     outline: none;
     border: none;
@@ -146,4 +146,3 @@ form h6{
     text-decoration: underline #c4e538;
     font-weight: 400;
 }
-
