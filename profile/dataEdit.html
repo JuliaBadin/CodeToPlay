@@ -4,7 +4,7 @@
   <title> Code to Play </title>
   <meta charset="utf-8">
   <link rel="icon" type="imagem/png" href="https://i.ibb.co/C5cSRjf/game-console.png" />
-  <link rel="stylesheet" type="text/css" href="../css page 1/estilo.css">
+  <link rel="stylesheet" type="text/css" href="profile-style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet">
@@ -54,280 +54,55 @@
     <!-- <p class="nome-usuario"> Nome do usuario </p> -->
     <div class="title-project">
       <div class="title-project-container">
-        <h1 class="titulo-proj">Nome do Projeto do Usuário</h1>
+        <h1 class="titulo-proj">Code to Play</h1>
       </div>
     </div>
 
   </div>
 </header>
 
-<section class="options">
-  <div class="opt programation-1">
-    <h2>Programação</h2>
-  </div>
+<div class="content profile-edit">
 
-  <div class="opt background-2">
-    <h2>Planos de Fundo</h2>
-  </div>
+   <form action="pagina.php" method="post">
 
-  <div class=" opt characters-3">
-    <h2>Personagens</h2>
-  </div>
-</section>
+     <label for="file"> Imagem de perfil:</label>
+     <input type="file" name="photo"> <br>
 
-<div class="content wrapper">
+     <label for="bio">Bio:</label>
+     <textarea name="bio" rows="8" cols="80" id="bio"></textarea>
 
-<div class="content programation">
+     <label for="name">Nome:</label>
+     <input type="text" name="name" id="name"> <br>
 
-  <section class="prog" >
-    <div class="options">
-      <div class="item commands">
-        <p> Comandos </p>
-      </div>
+     <label for="nickname">Apelido:</label>
+     <input type="text" name="nickname" id="nickname"> <br>
 
-      <div class="item events">
-        <p> Eventos </p>
-      </div>
+     <label for="birthday"> Data de Nascimento:</label>
+     <input type="date" name="birthday" id="birthday"> <br>
 
-      <div class="item sounds">
-        <p> Sons </p>
-      </div>
-    </div>
+     <label for="email">E-mail:</label>
+     <input type="email" name="email" id="email"> <br>
 
- <!-- conteudos das abas -->
- <div class="main">
-    <div class="conteudo"> <!-- Comandos -->
-         <div class="gridItem" id="c-1">
-           <H2>item a</H2>
-         </div>
+     <label for="nacionalidade">País de origem:</label>
+     <select name=Pais>
+      <?php include("lista-paises.html"); ?>
+     </select>
 
-         <div class="gridItem" id="c-2">
-          <H2>item b</H2>
-         </div>
+     <input type="submit" name="submit" value="Salvar" class="edit submit">
+     <button class="edit cancel"><a href="profile.html"> voltar </a></button>
+     <!-- <input type="button" name="cancel" class="edit cancel" value="cancelar"> -->
 
-         <div class="gridItem" id="c-3">
-         </div>
+   </form>
 
-         <div class="gridItem" id="c-4">
-         </div>
-
-         <div class="gridItem" id="c-5">
-         </div>
-
-         <div class="gridItem" id="c-6">
-         </div>
-
-         <div class="gridItem" id="c-7">
-         </div>
-
-         <div class="gridItem" id="c-8">
-         </div>
-
-         <div class="gridItem" id="c-9">
-         </div>
-    </div>
-
-    <div class="conteudo"> <!-- Eventos-->
-      <div class="gridItem" id="e-1">
-        <H2>item a EV</H2>
-      </div>
-
-      <div class="gridItem" id="e-2">
-       <H2>item b EV</H2>
-      </div>
-
-      <div class="gridItem" id="e-3">
-      </div>
-
-      <div class="gridItem" id="e-4">
-      </div>
-
-      <div class="gridItem" id="e-5">
-      </div>
-
-      <div class="gridItem" id="e-6">
-      </div>
-
-      <div class="gridItem" id="e-7">
-      </div>
-
-      <div class="gridItem" id="e-8">
-      </div>
-
-      <div class="gridItem" id="e-9">
-      </div>
-    </div>
-
-    <div class="conteudo"> <!-- Sons -->
-      <div class="gridItem" id="s-1">
-        <H2>item a S</H2>
-      </div>
-
-      <div class="gridItem" id="s-2">
-       <H2>item b S</H2>
-      </div>
-
-      <div class="gridItem" id="s-3">
-      </div>
-
-      <div class="gridItem" id="s-4">
-      </div>
-
-      <div class="gridItem" id="s-5">
-      </div>
-
-      <div class="gridItem" id="s-6">
-      </div>
-
-      <div class="gridItem" id="s-7">
-      </div>
-
-      <div class="gridItem" id="s-8">
-      </div>
-
-      <div class="gridItem" id="s-9">
-      </div>
-    </div>
-  </div>
-  </section>
-
-  <section class="game">
-  </section>
-
-  <section class="view game">
-  </section>
-
-  <section class="code prog">
-  </section>
-
-</div>
-
-  <div class="backgrounds"><!--content -->
-    <div class="gridItem" id="b-1">
-      <H2>item a S</H2>
-    </div>
-
-    <div class="gridItem" id="b-2">
-     <H2>item b S</H2>
-    </div>
-
-    <div class="gridItem" id="b-3">
-    </div>
-
-    <div class="gridItem" id="b-4">
-    </div>
-
-    <div class="gridItem" id="b-5">
-    </div>
-
-    <div class="gridItem" id="b-6">
-    </div>
-
-    <div class="gridItem" id="b-7">
-    </div>
-
-    <div class="gridItem" id="b-8">
-    </div>
-
-    <div class="gridItem" id="b-9">
-  </div>
-</div>
-  <div class="characters backgrounds"><!--aproveitei a a classe backgrounds aqui, caso tenha que colocar-->
-    <div class="gridItem" id="ch-1">  <!-- alguma estilizaçao que nao serve pra essa parte, é só copiar -->
-      <H2>item a C</H2>                <!-- a 5° funçao no js -->
-    </div>
-
-    <div class="gridItem" id="ch-2">
-     <H2>item b C</H2>
-    </div>
-
-    <div class="gridItem" id="ch-3">
-    </div>
-
-    <div class="gridItem" id="ch-4">
-    </div>
-
-    <div class="gridItem" id="ch-5">
-    </div>
-
-    <div class="gridItem" id="ch-6">
-    </div>
-
-    <div class="gridItem" id="ch-7">
-    </div>
-
-    <div class="gridItem" id="ch-8">
-    </div>
-
-    <div class="gridItem" id="ch-9">
-  </div>
-
-</div>
-
-</div>
-
-   <!-- Modal -->
-
-      <div class="bg-modal">
-     </div>
-<div class="modal">
-  <div class="text">
-    <h1>Deseja adicionar este item ao seu jogo?</h1>
-  </div>
-  <div class="buttons">
-    <button class="addItem"> SIM
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="19" height="19" x="0" y="0" viewBox="0 0 341.333 341.333" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      	<g>
-      		<path d="M170.667,0C76.41,0,0,76.41,0,170.667s76.41,170.667,170.667,170.667s170.667-76.41,170.667-170.667S264.923,0,170.667,0z     M170.667,298.667c-70.692,0-128-57.308-128-128s57.308-128,128-128s128,57.308,128,128S241.359,298.667,170.667,298.667z" fill="#ad0000" data-original="#000000" style=""/>
-      	</g>
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      <g xmlns="http://www.w3.org/2000/svg">
-      </g>
-      </g></svg>
-    </button>
-    <button class="close"> NÃO
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="18" height="18" x="0" y="0" viewBox="0 0 329.26933 329" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg" fill="#f44336"><path d="m21.339844 329.398438c-5.460938 0-10.925782-2.089844-15.082032-6.25-8.34375-8.339844-8.34375-21.824219 0-30.164063l286.589844-286.59375c8.339844-8.339844 21.824219-8.339844 30.164063 0 8.34375 8.339844 8.34375 21.824219 0 30.164063l-286.589844 286.59375c-4.183594 4.179687-9.621094 6.25-15.082031 6.25zm0 0" fill="#000b73" data-original="#f44336" style="" class=""/><path d="m307.929688 329.398438c-5.460938 0-10.921876-2.089844-15.082032-6.25l-286.589844-286.59375c-8.34375-8.339844-8.34375-21.824219 0-30.164063 8.339844-8.339844 21.820313-8.339844 30.164063 0l286.589844 286.59375c8.34375 8.339844 8.34375 21.824219 0 30.164063-4.160157 4.179687-9.621094 6.25-15.082031 6.25zm0 0" fill="#000b73" data-original="#f44336" style="" class=""/></g></g></svg>
-    </button>
-  </div>
 </div>
 
 <footer class="rodape">
-<p> rodape </p>
+  <!-- falar sobre o projeto -->
 </footer>
 
+</section>
 
-</section> <!--fim do centro (conteudo)!-->
-
-<script type="text/javascript" src="../JS page 1/jsArq.js"></script>
+<script type="text/javascript" src="JSfile.js"></script>
 </body>
 
 </html>
