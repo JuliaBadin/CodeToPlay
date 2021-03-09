@@ -16,12 +16,13 @@
 
     <body>
 
+<div class="Wrapper">
         <?php include("login.php"); ?>
         <button onClick=loginModal() class="button" > Entrar</button>
 
         <?php include("registro.php"); ?>
         <button onClick=registroModal() class="button" > Registrar-se</button>
-
+</div>
 
 
     </body>
