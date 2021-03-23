@@ -29,7 +29,7 @@
             <h2>Entrar</h2>
             <p class="exit" onclick="loginModal();">X</p>
           <!-- </div> -->
-            <form action="">
+            <form action="../html page 1/page-1.html" method="post">
 
                 <div class="input-form">
                     <label for="email">Email</label>
@@ -57,7 +57,7 @@
         <div id="content">
             <h2>Registrar-se</h2>
             <p class="exit" onclick="registroModal();">X</p>
-            <form action="">
+            <form action="login.php" method="post">
 
                 <div class="input-form">
                     <label for="name">Seu nome completo</label>
