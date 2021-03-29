@@ -3,6 +3,7 @@ $(document).ready(function(){
   console.log(width);
   if (width < 990) {
         $("video").attr("src","https://i.imgur.com/xzOdZ96.mp4");
+        $("video").attr("controls");
       }
 
   $('video').on('ended',function(){

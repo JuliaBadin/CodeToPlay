@@ -29,7 +29,7 @@
             <h2>Entrar</h2>
             <p class="exit" onclick="loginModal();">X</p>
           <!-- </div> -->
-            <form action="">
+            <form action="getdata.php" method="post">
 
                 <div class="input-form">
                     <label for="email">Email</label>
@@ -43,7 +43,7 @@
 
                 <h6>Novo por aqui?</h6>
                 <button class="button" onclick="loginModal();"><a href="#" id="registrar-login">Registrar-se</a></button>
-                <input type="submit" value="Entrar" id="submit">
+                <input type="submit" name="Entrar" value="Entrar" id="submit">
 
             </form>
         </div>
@@ -57,7 +57,7 @@
         <div id="content">
             <h2>Registrar-se</h2>
             <p class="exit" onclick="registroModal();">X</p>
-            <form action="">
+            <form action="getdata.php" method="post">
 
                 <div class="input-form">
                     <label for="name">Seu nome completo</label>
@@ -93,7 +93,7 @@
 
                 <h6>Já tem uma conta?</h6>
                 <button class="button" onclick="loginModal();"><a href="#" id="registrar-login">Entrar</a></button>
-                <input type="submit" value="Registrar-se" id="submit">
+                <input type="submit" name="registrar" value="Registrar-se" id="submit">
 
             </form>
         </div>
