@@ -93,6 +93,52 @@
                 <!-- <input type="button" name="cancel" class="edit cancel" value="cancelar"> -->
             </form>
         </div>
+      </div>
+    </div>
+    <!-- <p class="nome-usuario"> Nome do usuario </p> -->
+    <div class="title-project">
+      <div class="title-project-container">
+        <h1 class="titulo-proj">Code to Play</h1>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<div class="content profile-edit">
+
+   <form action="Edit.php" method="post">
+
+     <label for="file"> Imagem de perfil:</label>
+     <input type="file" name="photo"> <br>
+
+     <label for="bio">Bio:</label>
+     <textarea name="bio" rows="8" cols="80" id="bio"></textarea>
+
+     <label for="name">Nome:</label>
+     <input type="text" name="name" id="name"> <br>
+
+     <label for="nickname">Apelido:</label>
+     <input type="text" name="nickname" id="nickname"> <br>
+
+     <label for="birthday"> Data de Nascimento:</label>
+     <input type="date" name="birthday" id="birthday"> <br>
+
+     <label for="email">E-mail:</label>
+     <input type="email" name="email" id="email"> <br>
+
+     <label for="nacionalidade">País de origem:</label>
+     <select name=Pais>
+      <?php include("lista-paises.html"); ?>
+     </select>
+
+     <input type="submit" name="submit" value="Salvar" class="edit submit">
+     <button class="edit cancel"><a href="profile.html"> voltar </a></button>
+     <!-- <input type="button" name="cancel" class="edit cancel" value="cancelar"> -->
+
+   </form>
+
+</div>
 
         <footer class="rodape">
             <!-- falar sobre o projeto -->
