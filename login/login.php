@@ -31,6 +31,8 @@
           <!-- </div> -->
             <form action="getdata.php" method="post">
 
+            <form action="../html page 1/page-1.html" method="post">
+
                 <div class="input-form">
                     <label for="email">Email</label>
                     <input name="email" type="email" placeholder="exemplo@projeto.com">
@@ -58,6 +60,7 @@
             <h2>Registrar-se</h2>
             <p class="exit" onclick="registroModal();">X</p>
             <form action="getdata.php" method="post">
+            <form action="login.php" method="post">
 
                 <div class="input-form">
                     <label for="name">Seu nome completo</label>
