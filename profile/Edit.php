@@ -1,4 +1,15 @@
 birthday<?php
+
+include "../database/connect_db_php.php";
+
+//testa conexão com o banco
+if($connection){
+    echo "Succesful connection ";
+}
+else{
+    die ("Connection failed" . mysqli_connect_error());
+}
+
 session_start();
 
 if(isset($_POST["submit"])){
