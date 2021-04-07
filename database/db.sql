@@ -78,3 +78,7 @@ CREATE TABLE IF NOT EXISTS project_has_characters(
 		REFERENCES characters (idCharacter),
 	PRIMARY KEY (project_idProject, characters_idCharacter)
 );
+
+select * from sounds;
+#delete from characters where idcharacter = 74;
+update sounds set name = "Music Dark Atmosphere" where idsound = 23;
