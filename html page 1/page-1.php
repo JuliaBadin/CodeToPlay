@@ -17,6 +17,11 @@
 </head>
 
 <body>
+    <!-- conecta com o banco -->
+    <?php
+        include "../database/connect_db_php.php";
+        $connection = mysqli_connect($host, $user, $pass, $db);
+    ?>
 
     <section class="centro">
         <header class="cabecalho">
@@ -72,6 +77,10 @@
 
             <div class=" opt characters-3">
                 <h2>Personagens</h2>
+            </div>
+
+            <div class=" opt sounds-4">
+                <h2>Sons</h2>
             </div>
         </section>
 
@@ -207,68 +216,45 @@
 
             <div class="backgrounds">
                 <!--content -->
-                <div class="gridItem" id="b-1">
-                    <H2>item a S</H2>
-                </div>
+                <?php
+                    $consulta = "SELECT * FROM scenarios ORDER BY name";
+                    $res_consulta = mysqli_query($connection, $consulta);
+                    $i=0;
 
-                <div class="gridItem" id="b-2">
-                    <H2>item b S</H2>
-                </div>
-
-                <div class="gridItem" id="b-3">
-                </div>
-
-                <div class="gridItem" id="b-4">
-                </div>
-
-                <div class="gridItem" id="b-5">
-                </div>
-
-                <div class="gridItem" id="b-6">
-                </div>
-
-                <div class="gridItem" id="b-7">
-                </div>
-
-                <div class="gridItem" id="b-8">
-                </div>
-
-                <div class="gridItem" id="b-9">
-                </div>
+                    while ($dados = mysqli_fetch_array($res_consulta)){
+                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                    }
+                ?>
             </div>
+            
             <div class="characters backgrounds">
-                <!--aproveitei a a classe backgrounds aqui, caso tenha que colocar-->
-                <div class="gridItem" id="ch-1">
-                    <!-- alguma estilizaçao que nao serve pra essa parte, é só copiar -->
-                    <H2>item a C</H2>
-                    <!-- a 5° funçao no js -->
-                </div>
+                <!--aproveitei a a classe backgrounds aqui, caso tenha que colocar
+                    alguma estilizaçao que nao serve pra essa parte, é só copiar a 5° funçao no js -->
 
-                <div class="gridItem" id="ch-2">
-                    <H2>item b C</H2>
-                </div>
+                <?php
+                    $consulta = "SELECT * FROM characters ORDER BY name";
+                    $res_consulta = mysqli_query($connection, $consulta);
+                    $i=0;
 
-                <div class="gridItem" id="ch-3">
-                </div>
+                    while ($dados = mysqli_fetch_array($res_consulta)){
+                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                    }
+                ?>
+            </div>
 
-                <div class="gridItem" id="ch-4">
-                </div>
+            <div class="sounds backgrounds">
+                <!--aproveitei a a classe backgrounds aqui, caso tenha que colocar
+                    alguma estilizaçao que nao serve pra essa parte, é só copiar a 5° funçao no js -->
 
-                <div class="gridItem" id="ch-5">
-                </div>
+                <?php
+                    $consulta = "SELECT * FROM sounds ORDER BY name";
+                    $res_consulta = mysqli_query($connection, $consulta);
+                    $i=0;
 
-                <div class="gridItem" id="ch-6">
-                </div>
-
-                <div class="gridItem" id="ch-7">
-                </div>
-
-                <div class="gridItem" id="ch-8">
-                </div>
-
-                <div class="gridItem" id="ch-9">
-                </div>
-
+                    while ($dados = mysqli_fetch_array($res_consulta)){
+                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
+                    }
+                ?>
             </div>
 
         </div>

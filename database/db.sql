@@ -79,6 +79,6 @@ CREATE TABLE IF NOT EXISTS project_has_characters(
 	PRIMARY KEY (project_idProject, characters_idCharacter)
 );
 
-select * from sounds;
+select * from scenarios;
 #delete from characters where idcharacter = 74;
-update sounds set name = "Music Dark Atmosphere" where idsound = 23;
+update scenarios set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";
