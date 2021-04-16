@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS profile(
 	idProfile INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(45) NOT NULL,
-    surname VARCHAR(45) NOT NULL,
+    nickname VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
     country VARCHAR(100) NOT NULL,
     photo VARCHAR(100),
@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS project_has_characters(
 	PRIMARY KEY (project_idProject, characters_idCharacter)
 );
 
-select * from scenarios;
-#delete from characters where idcharacter = 74;
-update scenarios set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";
+select * from users;
+#update profile set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";*/
+#DELETE FROM users WHERE iduser>0 AND iduser<300;
+

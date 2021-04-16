@@ -92,7 +92,7 @@
         </div>
         <!--content-->
 
-        <button class="edit"><a href="dataEdit.html">Editar Perfil</a></button>
+        <button class="edit"><a href="dataEdit.php">Editar Perfil</a></button>
 
         <footer class="rodape">
             <p> rodape </p>
