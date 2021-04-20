@@ -1,0 +1,374 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ******************* Definiçoes Cabeçalho ******************** */
+
+.cabecalho {
+    width: 100%;
+    /* float: left; */
+    /* padding: 3% 4%; */
+    /* justify-content: center; */
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    float: left;
+}
+
+
+/* ***************Menu******************* */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+
+/* *********************************************** */
+
+
+/* TITULO DO PROJETO DO USUARIO*/
+
+.titulo-proj {
+    font-size: 2.3em;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 6em;
+}
+
+* {
+    transition: all 700ms;
+}
+
+.title-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho {
+    background-image: url("https://i.ibb.co/XtmVrKm/background-header.jpg");
+    padding: 0;
+}
+
+
+/* https://i.ibb.co/XtmVrKm/background-header.jpg
+https://i.ibb.co/nny8Nkg/footer.gif
+https://i.ibb.co/C5cSRjf/game-console.png */
+
+.rodape {
+    background-color: #000;
+    background-image: url("https://i.ibb.co/nny8Nkg/footer.gif");
+    background-size: 30%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    padding: 50px;
+    height: auto;
+    margin: 0;
+    width: 100%;
+}
+
+.cabecalho-container {
+    width: 100%;
+    padding: 50px;
+    background: #101010d4;
+}
+
+.titulo-proj {
+    font-family: 'Press Start 2P', cursive;
+    color: #C4E538;
+    font-size: 40px;
+    padding-top: 50px;
+}
+
+.cabecalho-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon {
+    width: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.search-icon svg,
+.user-menu svg {
+    width: 100%;
+    height: 30px;
+    fill: #c4e538;
+}
+
+.new-form {
+    display: flex;
+}
+
+.search {
+    border-bottom: 1px solid #c4e538;
+    color: #c4e538;
+    background: rgba(0, 0, 0, 0);
+    height: 30px;
+    width: 0;
+    transition: all 350ms;
+}
+
+.search::placeholder {
+    color: #c4e538;
+}
+
+.search.open {
+    width: 200px;
+}
+
+.icons-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-menu {
+    width: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.section-title {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 600;
+}
+
+
+/* ********************************************************** */
+
+.centro {
+    width: 100%;
+    margin: 0 auto;
+    background: #111212;
+}
+
+
+/*.content h2*/
+
+h2 {
+    /* margin: 10px; */
+    font-size: 20px;
+    color: #fff;
+}
+
+.content {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    /* align-items:center; */
+}
+
+.profile {
+    /* width:33.3%; */
+    width: 50%;
+    height: 100%;
+    background: black;
+    padding: 5px;
+}
+
+.profile img {
+    box-shadow: 0px 0px 7px #c4e538c2;
+    /* border: solid 1px black; */
+}
+
+.info {
+    /* width:66.7%; */
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    /* margin:0 0 0 50px; */
+    padding: 5px;
+}
+
+.profile div {
+    margin: 10px;
+}
+
+.profile_picture img {
+    box-shadow: 0px 0px 7px #c4e538c2;
+}
+
+.picture_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_picture {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.content h1 {
+    color: white;
+    font-size: 16px;
+    font-family: 'press start 2p', cursive;
+    text-align: center;
+    margin: 5px;
+}
+
+.info h2 {
+    line-height: 65px;
+    /* margin:45px; */
+}
+
+.info h1 {
+    font-size: 20px;
+}
+
+.profile h2 {
+    line-height: 40px;
+}
+
+.edit {
+    position: relative;
+    left: calc(100% - 160px);
+    bottom: 10px;
+    background: red;
+    border-style: outset;
+    border-radius: 5px;
+    /* border-color: #7b7904; */
+    border-color: #3f0707;
+    width: 120px;
+    height: 35px;
+    font-family: 'press start 2p', cursive;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+}
+
+.edit:hover {
+    background: blue;
+    transform: 300ms;
+    border-color: #060465;
+    cursor: pointer;
+}
+
+
+/* EDIÇAO DO PERFIL */
+
+input,
+select,
+textarea {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #6b6b6b;
+    background-color: rgba(250, 180, 41, 0.1);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-bottom: 2px solid #c4e538;
+}
+
+label {
+    padding-top: 15px;
+    letter-spacing: 0.5px;
+    display: block;
+    color: #ffffff;
+}
+
+.submit,
+.cancel {
+    position: static;
+    margin-top: 20px;
+}
+
+
+/* ***********Definiçoes Mobile************* */
+
+@media screen and (max-width:990px) {
+    .content {
+        display: block;
+    }
+    .info {
+        width: 100%;
+        height: 50%;
+        box-sizing: border-box;
+        /* margin:0 0 0 50px; */
+        padding: 5px;
+    }
+    .profile {
+        width: 100%;
+        height: 50%;
+        padding: 5px;
+    }
+}
+
+
+/* ************************************** */
+
+
+/*  Palette
+$black: #000000ff;
+$rich-black-fogra-39: #111212ff;
+$pear: #c4e538ff;
+$dark-olive-green: #62721cff;
+$cultured: #f9f9f9ff;
+$cultured-2: #f1f1f1ff; */
+
+
+/* DIMINUIR PADDING E MARGIN NO MOBILE */
