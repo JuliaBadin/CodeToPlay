@@ -16,7 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <?php
+        session_start();
         include "../database/connect_db_php.php";
+        include '../login/redirect.php';
     ?>
     
 </head>
@@ -52,7 +54,7 @@
                             <div class="dropdown-content">
                                 <a href="profile.php">Meu perfil</a>
                                 <a href="../projects/projects.php">Meus projetos</a>
-                                <a href="#">Sair</a>
+                                <a href="../login/logout.php">Sair</a>
                             </div>
                         </div>
                     </div>

@@ -19,10 +19,8 @@
 
     <?php
         session_start();
-
         include "../database/connect_db_php.php";
         $connection = mysqli_connect($host, $user, $pass, $db);
-        #../html page 1/page-1.php
     ?>
 
     <div class="buttons">
@@ -38,7 +36,7 @@
                 <h2>Entrar</h2>
                 <p class="exit" onclick="loginModal();">X</p>
             <!-- </div> -->
-                <form action="login.php" method="post">
+                <form action="verifica.php" method="post">
 
                     <input type="hidden" name="acao" value="login">
 
@@ -111,141 +109,46 @@
 
                 </form>
 
-         
-
                 <?php
                     if($_POST["acao"]=="cadastrar"){
-
-                            //cadastro
-                        /*$login = $_POST['surname'];
-                        $password = MD5($_POST['password']);
-
-                        $query_select = "SELECT name FROM users WHERE name = '$login'";
-                        $select = mysqli_query($login, $connection);
-                        $array = mysqli_fetch_array($select);
-                        $logarray = $array['login'];
-
-
-                            //confere se login foi digitado
-                        if($login == "" || $login == null){
-                            echo"<script language='javascript' type='text/javascript'>
-                            alert('O campo login deve ser preenchido');</script>";
+                        $consulta = "SELECT user FROM users WHERE user = '{$_POST['email']}'";
+                        $existe = mysqli_query($connection, $consulta);
+                        $res_existe = mysqli_num_rows($existe);
+                        if ($res_existe>0){
+                            echo "<script>alert('Este usuário já existe')</script>";
                         }else{
-                            //confere se o usuário já existe
-                        if($logarray == $login){
-                            echo"<script language='javascript' type='text/javascript'>
-                            alert('Esse login já existe');</script>";
-                            die();*/
+                            $insert = "INSERT INTO users(idUser, user, password) VALUES('', '" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
+                            $res_inserir = mysqli_query($connection, $insert);
 
-                        $insert = "INSERT INTO users(idUser, name, password) VALUES('', '" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
-                        $res_inserir = mysqli_query($connection, $insert);
+                            $idUser = "SELECT MAX(idUser) AS ID FROM users";
+                            $resID = mysqli_query($connection, $idUser);
+                            $dadosID = mysqli_fetch_array($resID);
 
-                        $idUser = "SELECT MAX(idUser) FROM users";
-                        $resID = mysqli_query($connection, $idUser);
-                        $dadosID = mysqli_fetch_array($resID);
+                            $insert2 = "INSERT INTO profile(idProfile, name, nickname, email, country, birthday, users_idUser)
+                                        VALUES ('',
+                                                '" . $_POST["name"] . "',
+                                                '" . $_POST["nickname"] . "',
+                                                '" . $_POST["email"] . "',
+                                                '" . $_POST["country"] . "',
+                                                '" . $_POST["birthday"] . "',
+                                                '" . $dadosID["ID"] . "'
+                                        )";
+                            $res_inserir2 = mysqli_query($connection, $insert2);
 
-                        $insert2 = "INSERT INTO profile(idProfile, name, nickname, email, country, birthday, users_idUser)
-                                    VALUES ('',
-                                            '" . $_POST["name"] . "',
-                                            '" . $_POST["nickname"] . "',
-                                            '" . $_POST["email"] . "',
-                                            '" . $_POST["country"] . "',
-                                            '" . $_POST["birthday"] . "',
-                                            '$dadosID'
-                                    )";
-                        $res_inserir2 = mysqli_query($connection, $insert2);
-
-                        if($res_inserir && $res_inserir2){
-                            echo "<div class='alert alert-info'>Cliente cadastrado com <b>sucesso</b> no BD!</div>";
-                        }else{
-                            echo "<script>alert('Erro ao cadastrar usuário!')</script>";
+                            if($res_inserir && $res_inserir2){
+                                echo "<div class='alert alert-info'>Cliente cadastrado com <b>sucesso</b> no BD!</div>";
+                            }else{
+                                echo "<script>alert('Erro ao cadastrar usuário!')</script>";
+                            }
                         }
                     }
 
                     if($_POST["acao"]=="login"){
-
-                        //modo 1 - visto no site https://www.todoespacoonline.com/w/2014/07/login-simples-com-php/
                         include 'verifica.php';
-
-                        //modo 2 - não funciona, dá erro na criptografia
-                        /*$email = $_POST['email'];
-                        $entrar = $_POST['entrar'];
-                        $password = md5($_POST['password']);
-
-                        if (isset($entrar)) {
-                            $login = "SELECT * FROM users WHERE name = '$email' AND password = '$password'";
-                            $verifica = mysqli_query($login, $connection);
-                            if (mysqli_num_rows($verifica)<1){
-                                echo"<script language='javascript' type='text/javascript'>
-                                    alert('$password');</script>";
-                                die();
-                            }else{
-                                setcookie("email",$email);
-                                //header("Location:../html page 1/page-1.php");
-                                echo"<script language='javascript' type='text/javascript'>
-                                    alert('Logado');</script>";
-                            }
-                        }*/
-                        
-                        //modo 3 - visto em aula, não funciona, dá erro na criptografia
-
-                        /*$email = $_POST['email'];
-                        $password = md5($_POST['password']);
-
-                        if (isset( $_POST) && !empty($_POST) ) {
-                            $dados = $_POST;
-                        } else {
-                            $dados = $_SESSION;
-                        }
-
-                        //ta dando ruim na criptografia
-                        $consulta = "SELECT * FROM users WHERE name = '$email'";
-                        $res_consulta = mysqli_query($connection, $consulta);
-                        $dados = mysqli_fetch_array($res_consulta);
-
-                        $login = "SELECT * FROM users WHERE name = '$email' AND password = '$password'";
-                        $verifica = mysqli_query($connection, $login);
-                        $num_resultados = mysqli_num_rows($verifica);
-
-                        if ($num_resultados<1){
-                            echo"<script language='javascript' type='text/javascript'>
-                            alert('$email $password');</script>";
-                        }else{
-                            echo"<script language='javascript' type='text/javascript'>
-                                alert('Funfou');</script>";
-                            $_SESSION["logado"] = "ok";
-
-                            $_SESSION["name"] = $dados["name"];
-                            $_SESSION["photo"] = $dados["photo"];
-                            $_SESSION["idProfile"] = $dados["idProfile"];
-                            
-                            print_r($_SESSION);
-
-                            $user = "SELECT * FROM profile WHERE email = '$email'";
-                            $verifica = mysqli_query($connection, $user);
-                            setcookie("user",$user);
-                            header("Location: ../html page 1/page-1.php");
-                        }*/
                     }
-
-                    //colocar no inicio de todas as paginas pra verificar se ta logado
-
-                    //include 'redirect.php';
-
-                    //site^  aula v 
-
-                    /*if(isset($_SESSION["logado"])){
-                         carrega a página
-                        }else{
-                            echo"<script language='javascript' type='text/javascript'>
-                                    alert('Faça login para continuar');</script>";
-                            header("Location: ../login/login.php");
-                        }*/
-
                 ?>
 
             </div>
-
         </div>
     </div>
 

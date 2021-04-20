@@ -17,10 +17,11 @@
 </head>
 
 <body>
-    <!-- conecta com o banco -->
+    
     <?php
+        session_start();
         include "../database/connect_db_php.php";
-        $connection = mysqli_connect($host, $user, $pass, $db);
+        include '../login/redirect.php';
     ?>
 
     <section class="centro">
@@ -52,7 +53,7 @@
                             <div class="dropdown-content">
                                 <a href="../profile/profile.php">Meu perfil</a>
                                 <a href="../projects/projects.php">Meus projetos</a>
-                                <a href="#">Sair</a>
+                                <a href="../login/logout.php">Sair</a>
                             </div>
                         </div>
                     </div>

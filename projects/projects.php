@@ -50,7 +50,7 @@
                             <div class="dropdown-content">
                                 <a href="../profile/profile.html">Meu perfil</a>
                                 <a href="projects.php">Meus projetos</a>
-                                <a href="#">Sair</a>
+                                <a href="../login/logout.php">Sair</a>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ USE CodeToPlay;
 
 CREATE TABLE IF NOT EXISTS users(
 	idUser INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(45),
+    user VARCHAR(45),
     password VARCHAR(45)
 );
 
@@ -81,5 +81,6 @@ CREATE TABLE IF NOT EXISTS project_has_characters(
 
 select * from users;
 #update profile set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";*/
-#DELETE FROM users WHERE iduser>0 AND iduser<300;
+#DELETE FROM users WHERE iduser>0 AND iduser<500;
+#DROP TABLE users;
 
