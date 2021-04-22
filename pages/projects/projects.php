@@ -28,7 +28,7 @@
             <div class="cabecalho-container">
                 <div class="cabecalho-top">
                     <div>
-                        <img src="https://i.ibb.co/C5cSRjf/game-console.png" alt="logo da pagina" class="logo">
+                        <a href="../index/index.php"><img src="https://i.ibb.co/C5cSRjf/game-console.png" alt="logo da pagina" class="logo"></a>
                     </div>
                     <div class="icons-menu">
                         <form action="/pagina-processa-dados-do-form" method="post" class="new-form">

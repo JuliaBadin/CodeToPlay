@@ -44,7 +44,7 @@
             $_SESSION['idUser'] = $fetch_usuario['idUser'];
 
             //echo"<script language='javascript' type='text/javascript'> alert('Logado com Sucesso');</script>";
-            header('location: ../index.php');
+            header('location: ../index/index.php');
 
         }else{
             // Continua deslogado

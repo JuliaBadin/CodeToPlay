@@ -79,9 +79,9 @@ CREATE TABLE IF NOT EXISTS project_has_characters(
 	PRIMARY KEY (project_idProject, characters_idCharacter)
 );
 
-select * from users;
+#select * from users;
 #SELECT * FROM users WHERE user = "juliabadin03@gmail.com";
 #update profile set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";*/
 #DELETE FROM characters WHERE idcharacter = 5;
-#DROP TABLE users;
+DROP TABLE users;
 

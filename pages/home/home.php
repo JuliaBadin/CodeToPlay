@@ -114,6 +114,11 @@
                             </div>
 
                             <div class="input-form">
+                                <label>Foto</label>
+                                <input type="file" name="photo">
+                            </div>
+
+                            <div class="input-form">
                                 <label for="country">País de origem</label>
                                 <select id="select" name="country" required="required">
                                     <?php include("lista-paises.html"); ?>
@@ -134,40 +139,63 @@
 
             <!-- CADASTRO/LOGIN -->
             <?php
-                if ($_POST["acao"] == "cadastrar") {
+                if ($_POST["acao"] == "cadastrar"){
                     $consulta = "SELECT user FROM users WHERE user = '{$_POST['email']}'";
                     $existe = mysqli_query($connection, $consulta);
                     $res_existe = mysqli_num_rows($existe);
-                    if ($res_existe > 0) {
+                    if ($res_existe > 0){
                         echo "<script>alert('Este usuário já existe')</script>";
-                    } else {
+                    }else{
                         $insert = "INSERT INTO users(idUser, user, password) VALUES('', '" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
                         $res_inserir = mysqli_query($connection, $insert);
+
+                        // Fazendo o upload da imagem
+                        if($_FILES["photo"]["name"] != ""){
+                            $arquivo = $_FILES["photo"];
+
+                            // Pega extensão do arquivo
+                            $ext = explode(".", $arquivo["name"]);
+
+                            // Gera um nome único para a imagem
+                            $novo_nome = md5(uniqid(time())).".".$ext[1];
+
+                            // Caminho de onde a imagem ficará
+                            $imagem_dir = "../../midia/images/users/" . $novo_nome;
+
+                            // Faz o upload da imagem
+                            move_uploaded_file($arquivo["tmp_name"], $imagem_dir);
+
+                            $nome_imagem = $novo_nome;
+                        } else{
+                            // Define uma imagem padrão se o usuário não selecionou
+                            $nome_imagem = "user_padrao.png";
+                        }
 
                         $idUser = "SELECT MAX(idUser) AS ID FROM users";
                         $resID = mysqli_query($connection, $idUser);
                         $dadosID = mysqli_fetch_array($resID);
 
-                        $insert2 = "INSERT INTO profile(idProfile, name, nickname, email, country, birthday, users_idUser)
+                        $insert2 = "INSERT INTO profile(idProfile, name, nickname, email, country, birthday, users_idUser, photo)
                                     VALUES ('',
                                             '" . $_POST["name"] . "',
                                             '" . $_POST["nickname"] . "',
                                             '" . $_POST["email"] . "',
                                             '" . $_POST["country"] . "',
                                             '" . $_POST["birthday"] . "',
-                                            '" . $dadosID["ID"] . "'
+                                            '" . $dadosID["ID"] . "',
+                                            '$nome_imagem'
                                     )";
                         $res_inserir2 = mysqli_query($connection, $insert2);
 
-                        if ($res_inserir && $res_inserir2) {
+                        if ($res_inserir && $res_inserir2){
                             //echo "<div class='alert alert-info'>Cliente cadastrado com <b>sucesso</b> no BD!</div>";
-                        } else {
+                        }else{
                             echo "<script>alert('Erro ao cadastrar usuário!')</script>";
                         }
                     }
                 }
 
-                if ($_POST["acao"] == "login") {
+                if ($_POST["acao"] == "login"){
                     include '../login/verifica.php';
                 }
             ?>

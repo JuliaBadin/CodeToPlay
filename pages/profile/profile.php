@@ -24,13 +24,12 @@
 </head>
 
 <body>
-
     <section class="centro">
         <header class="cabecalho">
             <div class="cabecalho-container">
                 <div class="cabecalho-top">
                     <div>
-                        <img src="https://i.ibb.co/C5cSRjf/game-console.png" alt="logo da pagina" class="logo">
+                        <a href="../index/index.php"><img src="https://i.ibb.co/C5cSRjf/game-console.png" alt="logo da pagina" class="logo"></a>
                     </div>
                     <div class="icons-menu">
                         <form action="/pagina-processa-dados-do-form" method="post" class="new-form">
@@ -70,24 +69,29 @@
 
         <div class="content main">
             <div class="info">
+                <?php
+                    $checa_user = "SELECT * FROM profile WHERE users_idUser = '{$_SESSION['idUser']}'";
+                    $verifica = mysqli_query($connection, $checa_user);
+                    $fetch_usuario = mysqli_fetch_array($verifica);
+                ?>
                 <h1>Informações Pessoais</h1>
-                <h2>Nome do Uusário: Alan Mathison Turing</h2>
-                <h2>Apelido: Alanzinho</h2>
-                <h2>Data de Nascimento: 23/06/1912</h2>
-                <h2>Nacionalidade: Britânico</h2>
-                <h2>E-mail: turing@gmail.com</h2>
+                <h2>Nome do Usuário: <?php echo($fetch_usuario['name']);?></h2>
+                <h2>Apelido: <?php echo($fetch_usuario['nickname']);?></h2>
+                <h2>Data de Nascimento: <?php echo($fetch_usuario['birthday']);?></h2>
+                <h2>E-mail: <?php echo($fetch_usuario['email']);?></h2>
+                <h2>País: <?php echo($fetch_usuario['country']);?></h2>
             </div>
 
+            <!-- colocar class profile se quiser fundo preto -->
             <div class="profile">
                 <div class="picture_content">
-                    <img src="https://i.ibb.co/0ZJxD2k/180608-turing-full-1116x1440.jpg" alt="profile picture" class="profile_picture">
+                    <img src="../../midia/images/users/<?php echo($fetch_usuario['photo']);?>" alt="profile picture" class="profile_picture">
                 </div>
                 <div class="username">
-                    <h1>Alan Turing</h1>
-                    <!-- Pegar as infos no input e passar pra cá -->
+                    <h1><?php echo($fetch_usuario['name']);?></h1>
                 </div>
                 <div class="bio">
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod ligula sit amet facilisis pharetra. Nunc interdum metus eu justo tincidunt molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <h2><?php echo($fetch_usuario['bio']);?>
                     </h2>
                 </div>
             </div>
