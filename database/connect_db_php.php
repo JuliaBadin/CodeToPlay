@@ -1,6 +1,6 @@
 <?php
-    $host = "localhost:3306";
-    $user = "root";
+    $host = "192.168.0.101";
+    $user = "codetoplay";
     $pass = "";
     $db = "CodeToPlay";
 
