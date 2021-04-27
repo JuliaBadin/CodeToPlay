@@ -1,4 +1,4 @@
-birthday<?php
+<?php
 
 include "../../database/connect_db_php.php";
 
