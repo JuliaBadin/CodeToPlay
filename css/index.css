@@ -83,16 +83,6 @@ img {
     padding-top: 6em;
 }
 
-.aa {
-    padding-top: 0.9vh;
-    color: white;
-    /*font-size:1.3em;*/
-}
-
-.aa:hover {
-    transform: scale(1.1);
-}
-
 * {
     transition: all 700ms;
 }
@@ -107,11 +97,6 @@ img {
     background-image: url("https://i.ibb.co/XtmVrKm/background-header.jpg");
     padding: 0;
 }
-
-
-/* https://i.ibb.co/XtmVrKm/background-header.jpg
-https://i.ibb.co/nny8Nkg/footer.gif
-https://i.ibb.co/C5cSRjf/game-console.png */
 
 .rodape {
     background-color: #000;
@@ -207,11 +192,7 @@ https://i.ibb.co/C5cSRjf/game-console.png */
     background: #111212;
 }
 
-
-/*.content h2*/
-
 h2 {
-    /* margin: 10px; */
     font-size: 20px;
     color: #fff;
 }
@@ -254,9 +235,15 @@ h2 {
     box-shadow: 0px 0px 7px #c4e5384d;
 }
 
+
+/* Entrega o Código */
+
 .code {
     margin: 30px 0 0 30px;
 }
+
+
+/* Execução do Jogo */
 
 .view {
     margin: 30px 0 0 0;
@@ -271,7 +258,6 @@ h2 {
 .opt {
     width: 25%;
     height: 40px;
-    /* background-color: #C4E538; */
     background-color: #0f1010;
     border-style: inset;
     border-color: #62721C;
@@ -287,7 +273,6 @@ h2 {
 .item {
     width: 30%;
     height: 25px;
-    /* background-color: #C4E538; */
     background-color: #0f1010;
     border-style: inset;
     border-color: #62721C;
@@ -306,9 +291,9 @@ h2 {
 .main {
     width: 100%;
     height: calc(100% - 35px);
+    /* padding: 50px; */
 }
 
-.conteudo,
 .backgrounds,
 .characters {
     width: 100%;
@@ -318,16 +303,65 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
 }
 
+form {
+    /* padding: 10px; */
+    /* display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "a b" "c d" "e e" "f f" "g g" "h i" "j k" "l m" ; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Block {
+    /* width: 100px; */
+    height: 25px;
+    background-color: purple;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 13px;
+    flex-grow: 1;
+    margin: 5px;
+    text-align: center;
+}
+
+.Block input {
+    width: 20px;
+}
+
+.Block:hover {
+    cursor: pointer;
+}
+
+
+/* aumentar as dimenções dos inputs 7 e 10*/
+
+#c-7 {
+    height: 45px;
+    /* width:90%; */
+}
+
+#c-7 input {
+    width: 150px;
+    margin: 3px;
+}
+
+#c-10 input {
+    width: 100px;
+}
+
 .backgrounds,
 .characters {
     height: 70vh;
 }
 
+
+/* ************** Modal ******************* */
+
 .modal {
     width: 300px;
     height: 200px;
     background-color: #0809d9;
-    /*#493e90*/
     position: absolute;
     top: 40%;
     left: 50%;
@@ -383,6 +417,34 @@ button svg {
 }
 
 
+/* ******************************************** */
+
+.submit {
+    background-color: transparent;
+}
+
+.create {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.CreateFooter {
+    position: absolute;
+    bottom: 0;
+}
+
+.edit {
+    height: fit-content;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.view {
+    position: relative;
+}
+
+
 /* ******************* Definiçoes Mobile ********************* */
 
 @media screen and (max-width:990px) {
@@ -399,6 +461,31 @@ button svg {
     .opt {
         width: 30%;
         height: 40px;
+    }
+    .Block {
+        height: 20px;
+        transform: scale(0.8);
+        margin: 1.5px;
+        font-size: 13px;
+    }
+    .say {
+        height: 40px;
+    }
+    .opt h2 {
+        line-height: 15px;
+    }
+    .opt {
+        width: 33%;
+    }
+    #c-7 {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .Block {
+        margin: 10px;
     }
 }
 
