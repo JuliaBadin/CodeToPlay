@@ -222,7 +222,7 @@
                 </section>
 
                 <section class="game create">
-                  <form action="../../js/index.js" method="get" class="FinalForm">
+                  <form action="../../js/js index.js" method="get" class="FinalForm">
 
 
                     <div class="CreateFooter">
@@ -350,7 +350,7 @@
     </section>
     <!--fim do centro (conteudo)!-->
 
-    <script type="text/javascript" src="../../js/index.js"></script>
+    <script type="text/javascript" src="../../js/js index.js"></script>
 </body>
 
 </html>
