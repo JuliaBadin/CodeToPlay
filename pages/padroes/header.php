@@ -2,7 +2,6 @@
     <title> Code to Play </title>
     <meta charset="utf-8">
     <link rel="icon" type="imagem/png" href="https://i.ibb.co/C5cSRjf/game-console.png" />
-    <link rel="stylesheet" type="text/css" href="../../css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet">

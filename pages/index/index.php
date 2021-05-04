@@ -5,13 +5,19 @@
     include "../padroes/header.php"; ?>
 
 <body>
-    
+    <link rel="stylesheet" href="../../css/estilo index.css">
     <?php
         include "../../database/connect_db_php.php";
         include '../login/redirect.php';
     ?>
 
-    
+    <?php
+      /*$arquivo = fopen('../../arquivos/sequencia.js', 'a+');
+      if ($arquivo){
+        fwrite($arquivo, 'Teste');
+      }
+      fclose($arquivo);*/
+    ?>
 
         <section class="options">
             <div class="opt programation-1">
@@ -54,16 +60,16 @@
                    <!-- conteudos das abas -->
                    <div class="main">
                         <div class="conteudo">
-                          <form action="../../js/functions.js" method="get" class="FormCommands">
+                          <form action="../../js/logic.php" method="get" class="FormCommands">
                             <!-- Comandos -->
                             <div class="Block inputButton" id="c-1">
-                              <label for="turnRight"> Vire
+                              <label for="turnRight"> Gire
                             <input name="turnRight" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             ° a direita</label>
                             </div>
 
                             <div class="Block inputButton" id="c-2">
-                              <label for="turnLeft"> Vire
+                              <label for="turnLeft"> Gire
                             <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             ° a esquerda </label>
                             </div>
@@ -82,27 +88,13 @@
                             </div>
 
                             <div class="Block inputButton" id="c-5">
-                                <label for="selectScenario">Selecionar cenário</label>
-                                <select name="selectScenario">
-                                  <option value "Scenario_1"> 1 </option>
-                                  <option value "Scenario_2"> 2 </option>
-                                  <option value "Scenario_3"> 3 </option>
-                                  <option value "Scenario_4"> 4 </option>
-                                  <option value "Scenario_5"> 5 </option>
-                                  <option value "Scenario_6"> 6 </option>
-                                </select>
+                                <label for="selectScenario">Selecionar cenário n°</label>
+                                <input name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
 
                             <div class="Block inputButton" id="c-6">
-                                <label for="selectCharacter">Selecionar personagem</label>
-                                <select name="selectCharacter">
-                                  <option value "Character_1"> 1 </option>
-                                  <option value "Character_2"> 2 </option>
-                                  <option value "Character_3"> 3 </option>
-                                  <option value "Character_4"> 4 </option>
-                                  <option value "Character_5"> 5 </option>
-                                  <option value "Character_6"> 6 </option>
-                                </select>
+                                <label for="selectCharacter">Selecionar personagem n°</label>
+                                <input name="selectCharacter" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
 
                             <div class="Block inputButton" id="c-7">
@@ -158,14 +150,12 @@
                               <input name="Hide" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
                             </div>
 
-                            <input type="submit" name="enviar">
-
                           </form>
                         </div>
 
                         <div class="conteudo">
                             <!-- Eventos-->
-                            <form action="../../js/functions.js" method="get" class="FormEvents">
+                            <form action="../../js/logic.php" method="get" class="FormEvents">
                             <div class="Block inputButton" id="e-1">
                               <label for="Wait">Espere
                             <input name="Wait" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
@@ -183,37 +173,23 @@
                             </div>
 
                             <div class="Block inputButton" id="e-4">
-                              <label for="selectScenario"> Quando o cenário
-                                <select name="selectScenario">
-                                  <option value "Scenario_1"> 1 </option>
-                                  <option value "Scenario_2"> 2 </option>
-                                  <option value "Scenario_3"> 3 </option>
-                                  <option value "Scenario_4"> 4 </option>
-                                  <option value "Scenario_5"> 5 </option>
-                                  <option value "Scenario_6"> 6 </option>
-                                </select>
+                              <label for="selectScenario"> Quando o cenário n°
+                                <select name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                  for selecionado </label>
+
                             </div>
 
                             <div class="Block inputButton" id="e-5">
-                                <label for="selectCharacter">Quando o personagem
-                                <select name="selectCharacter">
-                                  <option value "Character_1"> 1 </option>
-                                  <option value "Character_2"> 2 </option>
-                                  <option value "Character_3"> 3 </option>
-                                  <option value "Character_4"> 4 </option>
-                                  <option value "Character_5"> 5 </option>
-                                  <option value "Character_6"> 6 </option>
-                                </select>
+                                <label for="selectCharacter">Quando o personagem n°
+                                <input name="selectCharacter" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                  for selecionado </label>
                             </div>
-                         <input type="submit" name="enviar">
                           </form>
                         </div>
 
                         <div class="conteudo">
                             <!-- Sons -->
-                            <form action="../../js/functions.js" method="get" class="FormSounds">
+                            <form action="../../js/logic.php" method="get" class="FormSounds">
                             <div class="Block inputButton" id="s-1">
                                 <label for="selectSound">Tocar a música </label>
                                 <select name="selectSound">
@@ -240,16 +216,13 @@
 
                             <div class="Block inputButton" id="model">
                             </div>
-
-                            <input type="submit" name="enviar">
-
                           </form>
                         </div>
                     </div>
                 </section>
 
                 <section class="game create">
-                  <form action="../../js/functions.js" method="get" class="FinalForm">
+                  <form action="../../js/index.js" method="get" class="FinalForm">
 
 
                     <div class="CreateFooter">
@@ -265,8 +238,7 @@
                 </section>
 
                 <section class="view game">
-                  <div id="test" style="position: relative; background-color:red; width:200px; height:100px;">
-                  </div>
+                  <img src="../../midia/images/others/personagem.png" id="ch" width="100px" height="100px">
                 </section>
 
                 <section class="code prog">
@@ -282,7 +254,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
@@ -297,7 +269,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
@@ -312,7 +284,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='gridItem' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
+                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
                     }
                 ?>
             </div>
