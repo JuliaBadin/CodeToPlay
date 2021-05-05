@@ -215,7 +215,8 @@ button:hover,
 #fundo-modal-login,
 #fundo-modal-registro {
     position: absolute;
-    top: 0;
+    top: 2vw;
+    z-index: 3;
     bottom: 0;
     right: 0;
     left: 0;
@@ -240,7 +241,7 @@ button:hover,
     min-width: 300px;
     max-width: 38vw;
     min-height: 300px;
-    max-height: 40vw;
+    max-height: 25vw;
     border-radius: 14px;
     border: 1px solid #c4e538;
     display: flex;
@@ -250,8 +251,8 @@ button:hover,
 
 .modal#modal-registro {
     max-width: 40vw;
-    min-height: 300px;
-    max-height: 40vw;
+    min-height: 680px;
+    max-height: 50vw;
 }
 
 .exit {

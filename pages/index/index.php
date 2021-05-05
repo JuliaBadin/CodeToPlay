@@ -62,7 +62,7 @@
                         <div class="conteudo">
                           <form action="../../js/logic.php" method="get" class="FormCommands">
                             <!-- Comandos -->
-                            <div class="Block inputButton" id="c-1">
+                            <div class="Block inputButton" id="c-1" name="teste">
                               <label for="turnRight"> Gire
                             <input name="turnRight" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             ° a direita</label>

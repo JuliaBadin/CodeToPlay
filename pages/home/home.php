@@ -148,7 +148,7 @@
                     }else{
                         $insert = "INSERT INTO users(user, password) VALUES('" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
                         $res_inserir = mysqli_query($connection, $insert);
-                        echo "<script>alert($res_inserir)</script>";
+
                         // Fazendo o upload da imagem
                         if($_FILES["photo"]["name"] != ""){
                             $arquivo = $_FILES["photo"];
@@ -189,7 +189,7 @@
                         if ($res_inserir && $res_inserir2){
                             //echo "<div class='alert alert-info'>Cliente cadastrado com <b>sucesso</b> no BD!</div>";
                         }else{
-                            //echo "<script>alert('Erro ao cadastrar usuário!')</script>";
+                            echo "<script>alert('Erro ao cadastrar usuário!')</script>";
                         }
                     }
                 }
