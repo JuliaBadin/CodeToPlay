@@ -146,9 +146,9 @@
                     if ($res_existe > 0){
                         echo "<script>alert('Este usuário já existe')</script>";
                     }else{
-                        $insert = "INSERT INTO users(idUser, user, password) VALUES('', '" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
+                        $insert = "INSERT INTO users(user, password) VALUES('" . $_POST["email"] . "', md5('" . $_POST["password"] . "'))";
                         $res_inserir = mysqli_query($connection, $insert);
-
+                        echo "<script>alert($res_inserir)</script>";
                         // Fazendo o upload da imagem
                         if($_FILES["photo"]["name"] != ""){
                             $arquivo = $_FILES["photo"];
@@ -175,9 +175,8 @@
                         $resID = mysqli_query($connection, $idUser);
                         $dadosID = mysqli_fetch_array($resID);
 
-                        $insert2 = "INSERT INTO profile(idProfile, name, nickname, email, country, birthday, users_idUser, photo)
-                                    VALUES ('',
-                                            '" . $_POST["name"] . "',
+                        $insert2 = "INSERT INTO profile(name, nickname, email, country, birthday, users_idUser, photo)
+                                    VALUES ('" . $_POST["name"] . "',
                                             '" . $_POST["nickname"] . "',
                                             '" . $_POST["email"] . "',
                                             '" . $_POST["country"] . "',
@@ -190,7 +189,7 @@
                         if ($res_inserir && $res_inserir2){
                             //echo "<div class='alert alert-info'>Cliente cadastrado com <b>sucesso</b> no BD!</div>";
                         }else{
-                            echo "<script>alert('Erro ao cadastrar usuário!')</script>";
+                            //echo "<script>alert('Erro ao cadastrar usuário!')</script>";
                         }
                     }
                 }

@@ -1,8 +1,3 @@
-<?php
-    $host = "192.168.0.101";
-    $user = "codetoplay";
-    $pass = "";
-    $db = "CodeToPlay";
-
-    $connection = mysqli_connect($host, $user, $pass, $db);
+<?php 
+  $connection = mysqli_connect('remotemysql.com','VGjaX4G78w','JsHMD6UgRW', 'VGjaX4G78w');
 ?>

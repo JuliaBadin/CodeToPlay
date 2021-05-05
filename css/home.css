@@ -239,8 +239,8 @@ button:hover,
     margin: auto;
     min-width: 300px;
     max-width: 38vw;
-    min-height: 400px;
-    max-height: 45vw;
+    min-height: 300px;
+    max-height: 40vw;
     border-radius: 14px;
     border: 1px solid #c4e538;
     display: flex;
@@ -250,8 +250,8 @@ button:hover,
 
 .modal#modal-registro {
     max-width: 40vw;
-    min-height: 800px;
-    max-height: 70vw;
+    min-height: 300px;
+    max-height: 40vw;
 }
 
 .exit {
