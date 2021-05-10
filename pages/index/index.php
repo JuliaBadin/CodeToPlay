@@ -8,15 +8,7 @@
     <link rel="stylesheet" href="../../css/estilo index.css">
     <?php
         include "../../database/connect_db_php.php";
-        include '../login/redirect.php';
-    ?>
-
-    <?php
-      /*$arquivo = fopen('../../arquivos/sequencia.js', 'a+');
-      if ($arquivo){
-        fwrite($arquivo, 'Teste');
-      }
-      fclose($arquivo);*/
+        include "../login/redirect.php";
     ?>
 
         <section class="options">
@@ -62,13 +54,13 @@
                         <div class="conteudo">
                           <form action="../../js/logic.php" method="get" class="FormCommands">
                             <!-- Comandos -->
-                            <div class="Block inputButton" id="c-1" name="teste">
+                            <div class="Block inputButton" id="c-1">
                               <label for="turnRight"> Gire
                             <input name="turnRight" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             ° a direita</label>
                             </div>
 
-                            <div class="Block inputButton" id="c-2">
+                            <div class="Block inputButton" id="c-2" name="teste">
                               <label for="turnLeft"> Gire
                             <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             ° a esquerda </label>
@@ -222,7 +214,7 @@
                 </section>
 
                 <section class="game create">
-                  <form action="../../js/js index.js" method="get" class="FinalForm">
+                  <form action="../../js/index.js" method="get" class="FinalForm">
 
 
                     <div class="CreateFooter">
@@ -242,6 +234,16 @@
                 </section>
 
                 <section class="code prog">
+                  <p style="color: #fafafa;">
+                    <?php 
+                      $arquivo = fopen('../../arquivos/sequencia.txt', 'r');
+                      if ($arquivo == false) die ('erro no arquivo');
+                    
+                      while(!feof($arquivo)){
+                        echo fgets($arquivo). '<br />';
+                      }
+                    ?>
+                  </p>
                 </section>
 
             </div>
@@ -350,7 +352,9 @@
     </section>
     <!--fim do centro (conteudo)!-->
 
-    <script type="text/javascript" src="../../js/js index.js"></script>
+    <script type="text/javascript" src="../../js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

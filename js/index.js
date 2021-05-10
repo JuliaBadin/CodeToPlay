@@ -42,17 +42,28 @@ $('.conteudo div').click(function(event) { //pega o bloco clicado
     if (value != "") { //confere se foi preenchido
         // alert(value);
         var copy = $(bloco).clone();
-        $(copy).find(":input").attr("readonly", "true");
-        //var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
-        //$(copy).attr("id", randomId);
 
-        var name = $("input").attr("name");
-        $(copy).attr("name", name);
-        console.log("name da copia:" + copy.attr("name"));
+        //retorna id original da div
+        var namejs = $(copy).attr("id");
+        console.log("id original: " + namejs);
+
+        //import ('../arquivos/sequencia.php');
+
+        /*function returnNameToPhp() {
+            return (namejs)
+        };*/
+
+
+        //gera novo id pro clone
+        $(copy).find(":input").attr("readonly", "true");
+        var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
+        $(copy).attr("id", randomId);
+        console.log("id da copia: " + copy.attr("id"));
 
         $(copy).prependTo(".FinalForm"); //adiciona a seção ao lado
         // console.log((copy).attr("id"));
         $(bloco).find(":input").val('');
+
     }
     //fazer funçao pros blocos com SELECT
     // var value2 = $(this).find(":selected").val();
