@@ -35,29 +35,27 @@ $(document).ready(function() {
 $('.conteudo div').click(function(event) { //pega o bloco clicado
     event.stopPropagation();
     var bloco = $(this);
-    // $(this).clone().prependTo()
-    // alert(bloco);
-    var value = $(this).find(":input").val(); //o valor do input
-    // console.log(value);
-    if (value != "") { //confere se foi preenchido
-        // alert(value);
-        var copy = $(bloco).clone();
 
+    var value = $(this).find(":input").val(); //o valor do input
+
+    if (value != "") { //confere se foi preenchido
+
+        var copy = $(bloco).clone();
         //gera novo id pro clone
         $(copy).find(":input").attr("readonly", "true");
         var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
         $(copy).attr("newid", randomId);
 
-        console.log("id original: " + copy.attr("id"));
-        console.log("id da copia: " + copy.attr("newid"));
+        //console.log("id original: " + copy.attr("id"));
+        //console.log("id da copia: " + copy.attr("newid"));
 
         //salva id no nome do input hidden
         document.getElementById('retornaID').value = document.getElementById('retornaID').value + copy.attr("id") + "\n";
+        document.getElementById('retornaValores').value = document.getElementById('retornaValores').value + value + "\n";
 
-        $(copy).prependTo(".FinalForm"); //adiciona a seção ao lado
+        $(copy).prependTo(".FinalForm"); //adiciona a o div no finalForm
 
-        $(bloco).find(":input").val('');
-
+        $(bloco).find(":input").val(''); //zera os valores do clone
     }
     //fazer funçao pros blocos com SELECT
     // var value2 = $(this).find(":selected").val();
@@ -75,30 +73,6 @@ $(".conteudo div input").click(function(event) {
 });
 
 
-//retorna backgrounds selecionados
-$('.backgrounds div').click(function() { //ao clicar em um item de plano de fundo
-    var id = $(this).attr('id');
-    // alert(id);
-
-    $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
-
-    $('.close').click(function() {
-        $('.modal, .bg-modal').hide(); //ao clicar no botao cancelar fecha a modal
-    });
-
-    $('.addItem').click(function() { //clicando no botao sim, fecha a modal e add o item no jogo
-        $('.modal, .bg-modal').hide();
-        //ai adiciona o item selecionado no jogo... COMO eu não sei!!!
-    });
-
-});
-
-//retorna personagens selecionados
-
-$('.characters div').click(function() {
-    var id = $(this).attr('id');
-    // alert(id);
-});
 
 //funções
 // function teste(command, value) {

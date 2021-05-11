@@ -9,6 +9,7 @@
     <?php
         include "../../database/connect_db_php.php";
         include "../login/redirect.php";
+        //print_r($_SESSION);
     ?>
 
         <section class="options">
@@ -55,10 +56,11 @@
                           <form action="../../arquivos/sequencia.php" method="get" class="FormCommands">
                             <!-- Comandos -->
                             <div class="Block inputButton" id="c-1">
-                              <label for="transform_rotate(_deg)"> Gire //rotate
+                              <label for="transform_rotate(_deg)"> Gire / Rotate
                               <input name="transform_rotate(_deg)" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                               ° a direita</label>
                             </div>
+                            <?php echo "<script language='javascript' type='text/javascript'>console.log(($('.inputButton')).id) </script>";?>
 
                             <div class="Block inputButton" id="c-2">
                               <label for="turnLeft"> Gire
@@ -206,8 +208,6 @@
                            % </label>
                             </div>
 
-                            <div class="Block inputButton" id="model">
-                            </div>
                           </form>
                         </div>
                     </div>
@@ -215,7 +215,30 @@
                 <section class="game create">
                   <form action="../../arquivos/sequencia.php" method="get" class="FinalForm">
                     <input type="hidden" id="retornaID" value="" name="retornaID">
-                    <!-- <input type="submit" class="edit" value="enviar"> -->
+                    <input type="hidden" id="retornaValores" value="" name="retornaValores">
+                    
+                    <p style="color: #fafafa">
+                      <?php
+                        $le_sequencia = "SELECT * FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
+                        $verifica = mysqli_query($connection, $le_sequencia);
+                        $fetch_sequencia = mysqli_fetch_array($verifica);
+                      
+                        $funcoes = file_get_contents('funcoes.txt');
+
+                        $array_funcoes = (explode("\n",$fetch_sequencia['sequencia']));
+                        $array_funcoes = array_map('trim', $array_funcoes);
+
+                        foreach ($array_funcoes as $i) {    
+                          //$testa = "/^".$i."$/";
+                          //echo "$testa <br>";
+                          if(preg_match_all("/^".$i."$/", $funcoes, $conteudo[])){
+                          }
+                        }
+                        var_dump($conteudo);
+                        
+                      ?>
+                    </p>
+
 
                     <div class="CreateFooter" type="submit">
                       <button type="button" class="edit">
@@ -234,11 +257,6 @@
                 </section>
 
                 <section class="code prog">
-                  <?php
-                    $le_sequencia = "SELECT * FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
-                    $verifica = mysqli_query($connection, $le_sequencia);
-                    $fetch_sequencia = mysqli_fetch_array($verifica);
-                  ?>
                   <p style="color: #fafafa">
                     <?php echo($fetch_sequencia['sequencia'])?>
                   </p>
@@ -255,12 +273,12 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
             
-            <div class="characters backgrounds">
+            <div class="characters backgrouds">
                 <!--aproveitei a a classe backgrounds aqui, caso tenha que colocar
                     alguma estilizaçao que nao serve pra essa parte, é só copiar a 5° funçao no js -->
 
@@ -270,7 +288,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
@@ -285,7 +303,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='b-" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
+                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
                     }
                 ?>
             </div>
@@ -297,6 +315,15 @@
         <div class="bg-modal">
         </div>
         <div class="modal">
+          <form action="add_scenario.php" method="post">
+            <input type="hidden" id="idscenario" name="idscenario" value="">
+          </form>
+          <form action="add_character.php" method="post">
+            <input type="hidden" id="idcharacter" name="idcharacter" value="">
+          </form>
+          <form action="add_sound.php" method="post">
+            <input type="hidden" id="idsound" name="idsound" value="">
+          </form>
             <div class="text">
                 <h1>Deseja adicionar este item ao seu jogo?</h1>
             </div>
@@ -352,7 +379,82 @@
     <!--fim do centro (conteudo)!-->
 
     <script type="text/javascript" src="../../js/index.js"></script>
+    <script>
+      //retorna backgrounds selecionados
+      $('.backgrounds div').click(function() { //ao clicar em um item de plano de fundo
 
+          var idscenario = $(this).attr('id');
+
+          $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
+
+          $('.close').click(function() {
+              $('.modal, .bg-modal').hide(); //ao clicar no botao cancelar fecha a modal
+          });
+
+          $('.addItem').click(function() { //clicando no botao sim, fecha a modal e add o item no jogo
+              $('.modal, .bg-modal').hide();
+
+              document.getElementById('idscenario').value = idscenario; //coloca id do cenario no input hidden do form do modal
+              
+              $.ajax({
+                url : 'add_scenario.php',
+                type : 'POST',
+                data : {'idscenario' : idscenario}
+              });
+          });
+      });
+
+      //retorna characters selecionados
+      $('.characters div').click(function() { //ao clicar em um item de plano de fundo
+
+        var idcharacter = $(this).attr('id');
+        console.log(idcharacter);
+
+        $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
+
+        $('.close').click(function() {
+            $('.modal, .bg-modal').hide(); //ao clicar no botao cancelar fecha a modal
+        });
+
+        $('.addItem').click(function() { //clicando no botao sim, fecha a modal e add o item no jogo
+            $('.modal, .bg-modal').hide();
+
+            document.getElementById('idcharacter').value = idcharacter; //coloca id do character no input hidden do form do modal
+            
+            $.ajax({
+              url : 'add_character.php',
+              type : 'POST',
+              data : {'idcharacter' : idcharacter}
+            });
+          });
+      });
+
+      //retorna characters selecionados
+      $('.sounds div').click(function() { //ao clicar em um item de plano de fundo
+
+        var idsound = $(this).attr('id');
+        console.log(idcharacter);
+
+        $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
+
+        $('.close').click(function() {
+            $('.modal, .bg-modal').hide(); //ao clicar no botao cancelar fecha a modal
+        });
+
+        $('.addItem').click(function() { //clicando no botao sim, fecha a modal e add o item no jogo
+            $('.modal, .bg-modal').hide();
+
+            document.getElementById('idsound').value = idsound; //coloca id do sound no input hidden do form do modal
+            
+            $.ajax({
+              url : 'add_sound.php',
+              type : 'POST',
+              data : {'idsound' : idsound}
+            });
+          });
+      });
+    </script>
+    
 </body>
 
 </html>
