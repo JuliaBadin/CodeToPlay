@@ -238,6 +238,10 @@ h2 {
 
 /* Entrega o Código */
 
+.code {
+    margin: 30px 0 0 30px;
+}
+
 iframe {
     background-color: #f1f1f1;
     height: 100%;

@@ -55,15 +55,15 @@
                           <form action="../../arquivos/sequencia.php" method="get" class="FormCommands">
                             <!-- Comandos -->
                             <div class="Block inputButton" id="c-1">
-                              <label for="turnRight"> Gire
-                            <input name="turnRight" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                            ° a direita</label>
+                              <label for="transform_rotate(_deg)"> Gire //rotate
+                              <input name="transform_rotate(_deg)" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              ° a direita</label>
                             </div>
 
-                            <div class="Block inputButton" id="c-2" name="teste">
+                            <div class="Block inputButton" id="c-2">
                               <label for="turnLeft"> Gire
-                            <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                            ° a esquerda </label>
+                              <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              ° a esquerda </label>
                             </div>
 
                             <div class="Block inputButton" id="c-3">
@@ -233,19 +233,16 @@
                   <img src="../../midia/images/others/personagem.png" id="ch" width="100px" height="100px">
                 </section>
 
-                <section class="prog">
-                  <iframe src="../../arquivos/sequencia.txt" style="color: #fafafa;" frameborder="0">
-                    <p class="code" style="color: #fafafa;">
-                      <?php 
-                        /*$arquivo = fopen('../../arquivos/sequencia.txt', 'r');
-                        if ($arquivo == false) die ('erro no arquivo');
-                      
-                        while(!feof($arquivo)){
-                          echo fgets($arquivo). '<br />';
-                        }*/
-                      ?>
-                    </p>
-                  </iframe>
+                <section class="code prog">
+                  <?php
+                    $le_sequencia = "SELECT * FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
+                    $verifica = mysqli_query($connection, $le_sequencia);
+                    $fetch_sequencia = mysqli_fetch_array($verifica);
+                  ?>
+                  <p style="color: #fafafa">
+                    <?php echo($fetch_sequencia['sequencia'])?>
+                  </p>
+                  <!--<iframe src=" /*echo($fetch_sequencia['sequencia'])/*?>" style="color: #fafafa;" frameborder="0"></iframe>-->
                 </section>
 
             </div>

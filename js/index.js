@@ -162,7 +162,22 @@ $("form").on("submit", function(event) {
         comandoItem.valor = sequence[i].split("=")[1]; // coloca o atributo de valor no array de objetos comando
         Comandos.push(comandoItem); // coloca o item recém preenchido na ultima posição no array de objetos comando
     }
-    commandAction(Comandos);
+
+    function commandAction(Comandos) {
+        for (var i = 0; i < Comandos.length; i++) {
+            const woody = document.querySelector('#ch');
+            var n = Comandos[i].nome.split("_", 3);
+            var v = Comandos[i].valor;
+            woody.style.setProperty(n[0], n[1] + Comandos[0].valor + n[2]);
+            // console.log("p1: "+n[0]);
+            // console.log("valor: "+v);  //mostrar, esconder e mostrar tamanho: funçao separada com /100
+            // console.log("p2: "+n[1]);
+            // console.log("p3: "+n[2]);
+            console.log("comando=" + Comandos[i].nome + ":" + Comandos[i].valor);
+            // console.log(n[0],n[1]+Comandos[0].valor+n[2]);
+        }
+
+    }
 });
 
 
