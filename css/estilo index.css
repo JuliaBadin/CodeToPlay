@@ -238,10 +238,10 @@ h2 {
 
 /* Entrega o Código */
 
-.code p {
-    margin: 30px 0 0 30px;
-    color: #f1f1f1;
+iframe {
     background-color: #f1f1f1;
+    height: 100%;
+    width: 100%;
 }
 
 
