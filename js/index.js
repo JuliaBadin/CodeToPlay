@@ -46,7 +46,7 @@ $('.conteudo div').click(function(event) { //pega o bloco clicado
         document.getElementById('retornaValores').value = document.getElementById('retornaValores').value + value + "\n";
 
         var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
-        $(copy).attr("id", randomId);
+        $(copy).attr("newid", randomId);
 
         //funções select
         if (copy.attr("id") == "c-5" || copy.attr("id") == "c-6") {
