@@ -52,14 +52,18 @@ $('.conteudo div').click(function(event) { //pega o bloco clicado
         if (copy.attr("id") == "c-5" || copy.attr("id") == "c-6") {
             //document.getElementById(copy.attr("newid")).innerText = "testando";
             var idselecionado = document.getElementById(copy.attr("id"));
-            console.log(idselecionado);
+            console.log(idselecionado); //ta pegando o div inteiro
 
             $(copy).find(":input").attr("readonly", "true");
             //console.log($('option: selected').attr("id"));
             //$(copy).children().children().innerhtml = "testando";
             //console.log($(copy).children().children());
 
-            console.log($('#selectcenario option:selected').val()); //pega text selecionado
+            var textselect = ($('#selectcenario option:selected').val());
+            console.log(textselect);
+
+            $(copy).children().children().attr("value", textselect); //coloca text selecionado no value do option
+            $(copy).children().children().innerhtml = textselect; //talvez funcione, mas não assim
 
             /*if ($('input').attr('readonly') == true) {
                 console.log($('#selectScenario option: selected').attr("id")); //aqui pegava text selecionado IGNORA NAO FUNCIONA
