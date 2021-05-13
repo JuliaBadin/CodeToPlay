@@ -21,6 +21,10 @@
     <?php
         session_start();
         include "../../database/connect_db_php.php";
+
+        //desativa exibição de warnings no html
+        error_reporting(0);
+        ini_set('display_errors', 0);
     ?>
 
     <video autoplay='' muted='' class='blocks'>

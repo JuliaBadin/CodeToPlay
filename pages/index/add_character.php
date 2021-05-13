@@ -3,9 +3,10 @@
     include "../../database/connect_db_php.php";
 
     $idtoadd = $_POST['idcharacter'];
+    $nametoadd = $_POST['namecharacter'];
 
-    $insert = "INSERT INTO project_has_characters(project_idProject, characters_idCharacter)
-    VALUES('".$_SESSION['idProject']."','". $idtoadd ."')";
+    $insert = "INSERT INTO project_has_characters(project_idProject, characters_idCharacter, characters_NameCharacter)
+    VALUES('".$_SESSION['idProject']."','". $idtoadd ."','". $nametoadd . "')";
     
     $res_inserir = mysqli_query($connection, $insert);
     if ($res_inserir){

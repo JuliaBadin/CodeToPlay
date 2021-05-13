@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include '../../database/connect_db_php.php';
+
+    //desativa exibição de warnings no html
+    error_reporting(0);
+    ini_set('display_errors', 0);
+?>
+
 <head>
     <title> Code to Play </title>
     <meta charset="utf-8">
@@ -51,7 +60,13 @@
                 <!-- <p class="nome-usuario"> Nome do usuario </p> -->
                 <div class="title-project">
                     <div class="title-project-container">
-                        <h1 class="titulo-proj">Nome do Projeto do Usuário</h1>
+                        <?php
+                            $consulta = "SELECT * FROM profile WHERE users_idUser = '{$_SESSION['idUser']}'";
+                            $verifica = mysqli_query($connection, $consulta);
+                            $fetch_usuario = mysqli_fetch_array($verifica);
+                            echo "<h1 class='titulo-proj'>Bem vindo(a)". $fetch_usuario['nickname'] ."</h1>";
+                        ?>
+                        
                     </div>
                 </div>
             </div>

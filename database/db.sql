@@ -1,87 +1,104 @@
-CREATE DATABASE IF NOT EXISTS CodeToPlay;
-USE CodeToPlay;
+CREATE DATABASE IF NOT EXISTS `VGjaX4G78w`;
+USE `VGjaX4G78w`;
 
-CREATE TABLE IF NOT EXISTS users(
-	idUser INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user VARCHAR(45),
-    password VARCHAR(45)
-);
+CREATE TABLE IF NOT EXISTS `characters` (
+  `idCharacter` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idCharacter`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS profile(
-	idProfile INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(45) NOT NULL,
-    nickname VARCHAR(45) NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    country VARCHAR(100) NOT NULL,
-    photo VARCHAR(100),
-    birthday DATE,
-    bio VARCHAR(200),
-    users_idUser INT NOT NULL,
-    FOREIGN KEY(users_idUser)
-		REFERENCES users(idUser)
-);
+CREATE TABLE IF NOT EXISTS `functions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_function` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `code` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS project(
-	idProject INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    code LONGTEXT,
-    name VARCHAR(45) NOT NULL,
-    cover_page VARCHAR(45),
-    users_idUser INT NOT NULL,
-    FOREIGN KEY (users_idUser)
-		REFERENCES users (idUser)
-);
+CREATE TABLE IF NOT EXISTS `profile` (
+  `idProfile` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `nickname` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `photo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `bio` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `users_idUser` int(11) NOT NULL,
+  PRIMARY KEY (`idProfile`),
+  KEY `users_idUser` (`users_idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS sounds(
-	idSound INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(45) NOT NULL,
-    link VARCHAR(100) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS `project` (
+  `idProject` int(11) NOT NULL AUTO_INCREMENT,
+  `sequencia` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `valores_seq` longtext COLLATE utf8_unicode_ci,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cover_page` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `users_idUser` int(11) NOT NULL,
+  PRIMARY KEY (`idProject`),
+  KEY `users_idUser` (`users_idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS characters(
-	idCharacter INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(45) NOT NULL,
-    link VARCHAR(100) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS `project_has_characters` (
+  `project_idProject` int(11) NOT NULL,
+  `characters_idCharacter` int(11) NOT NULL,
+  `characters_NameCharacter` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`project_idProject`,`characters_idCharacter`),
+  KEY `characters_idCharacter` (`characters_idCharacter`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS scenarios(
-	idScenario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(45) NOT NULL,
-    link VARCHAR(100) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS `project_has_scenarios` (
+  `project_idProject` int(11) NOT NULL,
+  `scenarios_idScenario` int(11) NOT NULL,
+  `scenarios_NameScenario` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`project_idProject`,`scenarios_idScenario`),
+  KEY `scenarios_idScenario` (`scenarios_idScenario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS project_has_scenarios(
-	project_idProject INT NOT NULL,
-    scenarios_idScenario INT NOT NULL,
-    FOREIGN KEY (project_idProject)
-		REFERENCES project (idProject),
-	FOREIGN KEY (scenarios_idScenario)
-		REFERENCES scenarios (idScenario),
-	PRIMARY KEY (project_idProject, scenarios_idScenario)
-);
+CREATE TABLE IF NOT EXISTS `project_has_sounds` (
+  `project_idProject` int(11) NOT NULL,
+  `sounds_idSound` int(11) NOT NULL,
+  `sounds_NameSound` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`project_idProject`,`sounds_idSound`),
+  KEY `sounds_idSound` (`sounds_idSound`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS project_has_sounds(
-	project_idProject INT NOT NULL,
-    sounds_idSound INT NOT NULL,
-    FOREIGN KEY (project_idProject)
-		REFERENCES project (idProject),
-	FOREIGN KEY (sounds_idSound)
-		REFERENCES sounds (idSound),
-	PRIMARY KEY (project_idProject, sounds_idSound)
-);
+CREATE TABLE IF NOT EXISTS `scenarios` (
+  `idScenario` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idScenario`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS project_has_characters(
-	project_idProject INT NOT NULL,
-    characters_idCharacter INT NOT NULL,
-    FOREIGN KEY (project_idProject)
-		REFERENCES project (idProject),
-	FOREIGN KEY (characters_idCharacter)
-		REFERENCES characters (idCharacter),
-	PRIMARY KEY (project_idProject, characters_idCharacter)
-);
+CREATE TABLE IF NOT EXISTS `sounds` (
+  `idSound` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idSound`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-#select * from users;
-#SELECT * FROM users WHERE user = "juliabadin03@gmail.com";
-#update profile set link = "../midia/images/scenarios/view_of_city_night.jpg" where link = "../midia/images/scenarios/view_of_night_city.jpg";*/
-#DELETE FROM characters WHERE idcharacter = 5;
-#DROP TABLE users;
+CREATE TABLE IF NOT EXISTS `users` (
+  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`iduser`);
+
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`iduser`);
+
+ALTER TABLE `project_has_characters`
+  ADD CONSTRAINT `project_has_characters_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
+  ADD CONSTRAINT `project_has_characters_ibfk_2` FOREIGN KEY (`characters_idCharacter`) REFERENCES `characters` (`idcharacter`);
+
+ALTER TABLE `project_has_scenarios`
+  ADD CONSTRAINT `project_has_scenarios_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
+  ADD CONSTRAINT `project_has_scenarios_ibfk_2` FOREIGN KEY (`scenarios_idScenario`) REFERENCES `scenarios` (`idscenario`);
+
+ALTER TABLE `project_has_sounds`
+  ADD CONSTRAINT `project_has_sounds_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
+  ADD CONSTRAINT `project_has_sounds_ibfk_2` FOREIGN KEY (`sounds_idSound`) REFERENCES `sounds` (`idsound`);

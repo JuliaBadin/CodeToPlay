@@ -39,35 +39,75 @@ $('.conteudo div').click(function(event) { //pega o bloco clicado
     var value = $(this).find(":input").val(); //o valor do input
 
     if (value != "") { //confere se foi preenchido
-
-        var copy = $(bloco).clone();
-        //gera novo id pro clone
-        $(copy).find(":input").attr("readonly", "true");
-        var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
-        $(copy).attr("newid", randomId);
-
-        //console.log("id original: " + copy.attr("id"));
-        //console.log("id da copia: " + copy.attr("newid"));
+        var copy = $(bloco).clone(); //gera novo id pro clone
 
         //salva id no nome do input hidden
         document.getElementById('retornaID').value = document.getElementById('retornaID').value + copy.attr("id") + "\n";
         document.getElementById('retornaValores').value = document.getElementById('retornaValores').value + value + "\n";
 
+        var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
+        $(copy).attr("newid", randomId);
+
+        //funções select
+        if (copy.attr("id") == "c-5" || copy.attr("id") == "c-6") {
+            //document.getElementById(copy.attr("newid")).innerText = "testando";
+            var idselecionado = document.getElementById(copy.attr("id"));
+            console.log(idselecionado); //ta pegando o div inteiro
+
+            $(copy).find(":input").attr("readonly", "true");
+            //console.log($('option: selected').attr("id"));
+            //$(copy).children().children().innerhtml = "testando";
+            //console.log($(copy).children().children());
+
+            var textselect = ($('#selectcenario option:selected').val());
+            console.log(textselect);
+
+            $(copy).children().children().attr("value", textselect); //coloca text selecionado no value do option
+            $(copy).children().children().innerhtml = textselect; //talvez funcione, mas não assim
+
+            /*if ($('input').attr('readonly') == true) {
+                console.log($('#selectScenario option: selected').attr("id")); //aqui pegava text selecionado IGNORA NAO FUNCIONA
+                console.log("aloha");
+            }*/
+        }
+
         $(copy).prependTo(".FinalForm"); //adiciona a o div no finalForm
 
         $(bloco).find(":input").val(''); //zera os valores do clone
     }
+
     //fazer funçao pros blocos com SELECT
-    // var value2 = $(this).find(":selected").val();
-    // console.log("valor do select:"+value2);
-    // var copy = $(bloco).clone();
-    // $(copy).find(":select").attr("readonly","true");
-    // // $(copy).attr("id", randomId);
-    //
-    // $(copy).prependTo(".FinalForm");//adiciona a seção ao lado
-    // // console.log((copy).attr("id"));
-    // $(bloco).find(":select").val('');
+
+    /*$("#selectScenario").on('change', function() {
+            valorselect = $(this).val();
+        });
+
+        var value2 = $(this).find(":selected").text();
+
+        if (value2 != "") {
+            var copy = $(bloco).clone();
+
+            var idoriginal = $(copy).attr("id");
+            $(copy).find(":selected").attr("id", "idoriginal");
+
+            //(copy).attr("newid", "id");
+            $(copy).attr("newid", randomId);
+
+            $('option:selected').attr("name");
+
+            document.getElementById('retornaID').value = document.getElementById('retornaID').value + "\n";
+            document.getElementById('retornaValores').value = document.getElementById('retornaValores').value + value2 + "\n";
+
+            $(copy).prependTo(".FinalForm"); //adiciona a seção ao lado
+            document.getElementById(copy.attr("newid")).innerHTML = "testando";
+
+            //document.getElementById(copy.attr("id")).innerHTML = "<label for='selectScenario'> Selecionar cenário < /label> <select name = 'selectScenario'><option></option>";
+
+            //$(bloco).find(":select").val('');
+    }*/
+
 });
+
 $(".conteudo div input").click(function(event) {
     event.stopPropagation();
 });

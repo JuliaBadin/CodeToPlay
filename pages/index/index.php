@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php session_start();
-    include "../padroes/header.php"; ?>
-
+<?php
+    include "../padroes/header.php";
+    include "../login/redirect.php";
+  ?>
 <body>
     <link rel="stylesheet" href="../../css/estilo index.css">
-    <?php
-        include "../../database/connect_db_php.php";
-        include "../login/redirect.php";
-        //print_r($_SESSION);
-    ?>
 
         <section class="options">
             <div class="opt programation-1">
@@ -60,7 +56,6 @@
                               <input name="transform_rotate(_deg)" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                               ° a direita</label>
                             </div>
-                            <?php echo "<script language='javascript' type='text/javascript'>console.log(($('.inputButton')).id) </script>";?>
 
                             <div class="Block inputButton" id="c-2">
                               <label for="turnLeft"> Gire
@@ -82,13 +77,33 @@
                             </div>
 
                             <div class="Block inputButton" id="c-5">
-                                <label for="selectScenario">Selecionar cenário n°</label>
-                                <input name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                <label for="selectScenario">Selecionar cenário</label>
+                                <select id="selectcenario" name="selectScenario">
+                                  <?php
+                                    echo $ve_scenarios = "SELECT * FROM project_has_scenarios WHERE project_idProject = '{$_SESSION['idProject']}'";
+                                    $verifica_scenarios = mysqli_query($connection, $ve_scenarios);
+                                    
+                                    echo "<option id='selectScenario'></option>"; //primeiro option vazio pro js não clonar sem selecionar
+                                    while($fetch_scenarios = mysqli_fetch_array($verifica_scenarios)){
+                                      echo "<option id='".$fetch_scenarios['scenarios_NameScenario']."'>".$fetch_scenarios['scenarios_NameScenario']."</option>";
+                                    }                                      
+                                  ?>
+                                </select>
                             </div>
 
                             <div class="Block inputButton" id="c-6">
-                                <label for="selectCharacter">Selecionar personagem n°</label>
-                                <input name="selectCharacter" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                <label for="selectCharacter">Selecionar personagem</label>
+                                <select id="selectCharacter" name="selectCharacter">
+                                <?php
+                                  echo $ve_characters = "SELECT * FROM project_has_characters WHERE project_idProject = '{$_SESSION['idProject']}'";
+                                  $verifica_characters = mysqli_query($connection, $ve_characters);
+                                  
+                                  echo "<option id='selectScenario'></option>"; //primeiro option vazio pro js não clonar sem selecionar
+                                  while($fetch_characters = mysqli_fetch_array($verifica_characters)){
+                                    echo "<option id='selectScenario'>".$fetch_characters['characters_NameCharacter']."</option>";
+                                      }                                      
+                                  ?>
+                                </select>
                             </div>
 
                             <div class="Block inputButton" id="c-7">
@@ -167,10 +182,18 @@
                             </div>
 
                             <div class="Block inputButton" id="e-4">
-                              <label for="selectScenario"> Quando o cenário n°
-                                <select name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                                 for selecionado </label>
-
+                              <label for="selectScenario"> Quando o cenário
+                              <select id="selectScenario" name="selectScenario">
+                                  <?php
+                                    echo $ve_scenarios = "SELECT * FROM project_has_scenarios WHERE project_idProject = '{$_SESSION['idProject']}'";
+                                    $verifica_scenarios = mysqli_query($connection, $ve_scenarios);
+                                    
+                                    echo "<option id='selectScenario'></option>"; //primeiro option vazio pro js não clonar sem selecionar
+                                    while($fetch_scenarios = mysqli_fetch_array($verifica_scenarios)){
+                                      echo "<option id='selectScenario'>".$fetch_scenarios['scenarios_NameScenario']."</option>";
+                                    }                                      
+                                  ?>
+                                </select>
                             </div>
 
                             <div class="Block inputButton" id="e-5">
@@ -187,12 +210,15 @@
                             <div class="Block inputButton" id="s-1">
                                 <label for="selectSound">Tocar a música </label>
                                 <select name="selectSound">
-                                  <option value "Sound_1"> 1 </option>
-                                  <option value "Sound_2"> 2 </option>
-                                  <option value "Sound3"> 3 </option>
-                                  <option value "Sound_4"> 4 </option>
-                                  <option value "Sound_5"> 5 </option>
-                                  <option value "Sound_6"> 6 </option>
+                                  <?php
+                                    echo $ve_sounds = "SELECT * FROM project_has_sounds WHERE project_idProject = '{$_SESSION['idProject']}'";
+                                    $verifica_sounds = mysqli_query($connection, $ve_sounds);
+                                    
+                                    echo "<option id='selectScenario'></option>"; //primeiro option vazio pro js não clonar sem selecionar
+                                    while($fetch_sounds = mysqli_fetch_array($verifica_sounds)){
+                                      echo "<option id='selectScenario'>".$fetch_sounds['sounds_NameSound']."</option>";
+                                        }                                      
+                                    ?>
                                 </select>
                             </div>
 
@@ -219,23 +245,42 @@
                     
                     <p style="color: #fafafa">
                       <?php
-                        $le_sequencia = "SELECT * FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
-                        $verifica = mysqli_query($connection, $le_sequencia);
-                        $fetch_sequencia = mysqli_fetch_array($verifica);
-                      
-                        $funcoes = file_get_contents('funcoes.txt');
+                      //sequência
+                        $le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
+                        $verifica_sequencia = mysqli_query($connection, $le_sequencia);
+                        $fetch_sequencia = mysqli_fetch_array($verifica_sequencia);
+                        $verifica = mysqli_num_rows($verifica_sequencia);
 
-                        $array_funcoes = (explode("\n",$fetch_sequencia['sequencia']));
-                        $array_funcoes = array_map('trim', $array_funcoes);
+                        if($verifica > 0){
+                          $array_funcoes = (explode("\n",$fetch_sequencia['sequencia'])); //tira \n
+                          $array_funcoes = array_map('trim', $array_funcoes); //tira espaços
+                          $array_funcoes = array_filter($array_funcoes); //tira elementos nulo ou vazio
 
-                        foreach ($array_funcoes as $i) {    
-                          //$testa = "/^".$i."$/";
-                          //echo "$testa <br>";
-                          if(preg_match_all("/^".$i."$/", $funcoes, $conteudo[])){
+                          //funções
+                          $le_funcoes = "SELECT * FROM functions";
+                          $verifica_funcoes = mysqli_query($connection, $le_funcoes);
+                          $fetch_funcoes = mysqli_fetch_array($verifica_funcoes);
+
+                          /*$nfuncoes = "SELECT MAX(id) AS nfuncoes FROM functions";
+                          $res_nfuncoes = mysqli_query($connection, $nfuncoes);
+                          $dados_nfuncoes = mysqli_fetch_array($res_nfuncoes);
+                          
+                          $n_array = count($array_funcoes) - 1;
+                          $n_funcoes = $dados_nfuncoes['nfuncoes'];*/
+                        
+                          while($fetch_funcoes = mysqli_fetch_array($verifica_funcoes)){
+                            echo "b ";
+                            foreach ($array_funcoes as $i => $value){  
+                              echo "a ";
+                              if($fetch_funcoes['id_function'] == $value){
+                                $array_codigo = $fetch_funcoes['code'] . "<br>";
+                                  //echo $fetch_funcoes['code'];
+                                  echo "<br>";
+                              }
+                            }
+                            echo "<br>";
                           }
                         }
-                        var_dump($conteudo);
-                        
                       ?>
                     </p>
 
@@ -257,10 +302,7 @@
                 </section>
 
                 <section class="code prog">
-                  <p style="color: #fafafa">
-                    <?php echo($fetch_sequencia['sequencia'])?>
-                  </p>
-                  <!--<iframe src=" /*echo($fetch_sequencia['sequencia'])/*?>" style="color: #fafafa;" frameborder="0"></iframe>-->
+                  <iframe src="mostra_codigo.php"></iframe>
                 </section>
 
             </div>
@@ -273,7 +315,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                      echo "<div id='" . ++$i . "'> <H2 id='". $dados["name"] ."'>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
@@ -288,7 +330,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
+                      echo "<div id='" . ++$i . "'> <H2 id='". $dados["name"] ."'>" . $dados["name"] . "</H2><img src = '" . $dados["link"] . "'></div>";
                     }
                 ?>
             </div>
@@ -303,7 +345,7 @@
                     $i=0;
 
                     while ($dados = mysqli_fetch_array($res_consulta)){
-                        echo "<div class='Block' id='" . ++$i . "'> <H2>" . $dados["name"] . "</H2> <audio><source src = '" . $dados["link"] . "'></audio></div>";
+                      echo "<div id='" . ++$i . "'> <H2 id='". $dados["name"] ."'>" . $dados["name"] . "</H2><audio controls><source src= '" . $dados["link"] . "' type='audio/mp3'>clique</audio></div>";
                     }
                 ?>
             </div>
@@ -317,12 +359,15 @@
         <div class="modal">
           <form action="add_scenario.php" method="post">
             <input type="hidden" id="idscenario" name="idscenario" value="">
+            <input type="hidden" id="namescenario" name="namescenario" value="">
           </form>
           <form action="add_character.php" method="post">
             <input type="hidden" id="idcharacter" name="idcharacter" value="">
+            <input type="hidden" id="namecharacter" name="namecharacter" value="">
           </form>
           <form action="add_sound.php" method="post">
             <input type="hidden" id="idsound" name="idsound" value="">
+            <input type="hidden" id="namesound" name="namesound" value="">
           </form>
             <div class="text">
                 <h1>Deseja adicionar este item ao seu jogo?</h1>
@@ -384,6 +429,7 @@
       $('.backgrounds div').click(function() { //ao clicar em um item de plano de fundo
 
           var idscenario = $(this).attr('id');
+          var namescenario = $(this).children().attr('id');
 
           $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
 
@@ -395,12 +441,24 @@
               $('.modal, .bg-modal').hide();
 
               document.getElementById('idscenario').value = idscenario; //coloca id do cenario no input hidden do form do modal
+              document.getElementById('namescenario').value = namescenario; //coloca name do cenario no input hidden do form do modal
               
               $.ajax({
                 url : 'add_scenario.php',
                 type : 'POST',
-                data : {'idscenario' : idscenario}
+                data : {'idscenario' : idscenario, 'namescenario' : namescenario},
+                
+                /*beforeSend : function () {
+                  console.log('Carregando...');
+                },
+                success : function(retorno){
+                    console.log(retorno);
+                },
+                error : function(a,b,c){
+                    console.log('Erro: '+a[status]+' '+c);
+                }*/
               });
+              
           });
       });
 
@@ -408,7 +466,7 @@
       $('.characters div').click(function() { //ao clicar em um item de plano de fundo
 
         var idcharacter = $(this).attr('id');
-        console.log(idcharacter);
+        var namecharacter = $(this).children().attr('id');
 
         $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
 
@@ -420,11 +478,12 @@
             $('.modal, .bg-modal').hide();
 
             document.getElementById('idcharacter').value = idcharacter; //coloca id do character no input hidden do form do modal
-            
+            document.getElementById('namecharacter').value = namecharacter; //coloca name do cenario no input hidden do form do modal
+
             $.ajax({
               url : 'add_character.php',
               type : 'POST',
-              data : {'idcharacter' : idcharacter}
+              data : {'idcharacter' : idcharacter, 'namecharacter' : namecharacter}
             });
           });
       });
@@ -433,7 +492,7 @@
       $('.sounds div').click(function() { //ao clicar em um item de plano de fundo
 
         var idsound = $(this).attr('id');
-        console.log(idcharacter);
+        var namesound = $(this).children().attr('id');
 
         $('.modal, .bg-modal').fadeIn(1000); //aparece uma modal confirmando a escolha
 
@@ -445,11 +504,12 @@
             $('.modal, .bg-modal').hide();
 
             document.getElementById('idsound').value = idsound; //coloca id do sound no input hidden do form do modal
+            document.getElementById('namesound').value = namesound; //coloca name do cenario no input hidden do form do modal
             
             $.ajax({
               url : 'add_sound.php',
               type : 'POST',
-              data : {'idsound' : idsound}
+              data : {'idsound' : idsound, 'namesound' : namesound}
             });
           });
       });

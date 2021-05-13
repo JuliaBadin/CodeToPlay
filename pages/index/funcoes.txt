@@ -1,144 +1,138 @@
-<div class="Block inputButton" id="c-1">
-    <label for="transform_rotate(_deg)"> Gire / Rotate
-    <input name="transform_rotate(_deg)" id="abc" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-1'>
+    <label for='transform_rotate(_deg)'> Gire / Rotate
+    <input name='transform_rotate(_deg)' id='abc' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     ° a direita</label>
 </div>
 
-<div class="Block inputButton" id="c-2">
-    <label for="turnLeft"> Gire
-    <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-2'>
+    <label for='turnLeft'> Gire
+    <input name='turnLeft' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     ° a esquerda </label>
 </div>
 
-<div class="Block inputButton" id="c-3">
-    <label for="CoordinateX"> Ir para X =</label>
-    <input name="CoordinateX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-    <label for="CoordinateY"> e Y = </label>
-    <input name="CoordinateY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-3'>
+    <label for='CoordinateX'> Ir para X =</label>
+    <input name='CoordinateX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='CoordinateY'> e Y = </label>
+    <input name='CoordinateY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 </div>
 
-<div class="Block inputButton" id="c-4">
-    <label for="Repeat">Repetir
-    <input name="Repeat" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-4'>
+    <label for='Repeat'>Repetir
+    <input name='Repeat' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     vezes </label>
 </div>
 
-<div class="Block inputButton" id="c-5">
-    <label for="selectScenario">Selecionar cenário n°</label>
-    <input name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-5'>
+    <label for='selectScenario'>Selecionar cenário n°</label>
+    <input name='selectScenario' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 </div>
 
-<div class="Block inputButton" id="c-6">
-    <label for="selectCharacter">Selecionar personagem n°</label>
-    <input name="selectCharacter" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-6'>
+    <label for='selectCharacter'>Selecionar personagem n°</label>
+    <input name='selectCharacter' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 </div>
 
-<div class="Block inputButton" id="c-7">
-    <label for="Say"> Dizer
-    <input type="text" name="Say" class="textInput">
+<div class='Block inputButton' id='c-7'>
+    <label for='Say'> Dizer
+    <input type='text' name='Say' class='textInput'>
     na posição </label>
 
-    <select name="SelectPositionA">
-    <option value="top">Superior </option>
-    <option value="bottom">Inferior </option>
-    <option value="center">Central </option>
+    <select name='SelectPositionA'>
+    <option value='top'>Superior </option>
+    <option value='bottom'>Inferior </option>
+    <option value='center'>Central </option>
     </select>
 
-    <select name="SelectPositionB">
-    <option value="left">Esquerda</option>
-    <option value="right">Direita </option>
-    <option value="top">Central </option>
+    <select name='SelectPositionB'>
+    <option value='left'>Esquerda</option>
+    <option value='right'>Direita </option>
+    <option value='top'>Central </option>
     </select>
 </div>
 
-<div class="Block inputButton" id="c-8">
-    <label for="MoveX"> Mover X = </label>
-    <input name="MoveX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-    <label for="MoveY"> e Y = </label>
-    <input name="MoveY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-8'>
+    <label for='MoveX'> Mover X = </label>
+    <input name='MoveX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='MoveY'> e Y = </label>
+    <input name='MoveY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 </div>
 
-<div class="Block inputButton" id="c-9">
-    <label for="MoveY"> Mover Y = </label>
-    <input name="MoveY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-    <label for="MoveX">e X = </label>
-    <input name="MoveX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-9'>
+    <label for='MoveY'> Mover Y = </label>
+    <input name='MoveY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='MoveX'>e X = </label>
+    <input name='MoveX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 </div>
 
-<div class="Block inputButton" id="c-10">
-    <label for="If">Se
-    <input class="increaseWidth" name="If" type="text" placeholder="nº da condição"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='c-10'>
+    <label for='If'>Se
+    <input class='increaseWidth' name='If' placeholder='nº da condição' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     faça </label>
 </div>
 
-<div class="Block inputButton" id="c-11">
-    <label for="changeSize"> Mudar tamanho para </label>
-    <input name="changeSize" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+<div class='Block inputButton' id='c-11'>
+    <label for='changeSize'> Mudar tamanho para </label>
+    <input name='changeSize' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
 </div>
 
-<div class="Block inputButton" id="c-12">
-    <label for="Show">Mostrar </label>
-    <input name="Show" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+<div class='Block inputButton' id='c-12'>
+    <label for='Show'>Mostrar </label>
+    <input name='Show' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
 </div>
 
-<div class="Block inputButton" id="c-13">
-    <label for="Hide">Esconder </label>
-    <input name="Hide" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+<div class='Block inputButton' id='c-13'>
+    <label for='Hide'>Esconder </label>
+    <input name='Hide' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
 </div>
 
 
 
-<div class="Block inputButton" id="e-1">
-    <label for="Wait">Espere
-    <input name="Wait" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='e-1'>
+    <label for='Wait'>Espere
+    <input name='Wait' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     segundos </label>
 </div>
 
-<div class="Block inputButton" id="e-2">
-    <label for="KeyPress">Quando a tecla
-    <input name="KeyPress" type="text">
+<div class='Block inputButton' id='e-2'>
+    <label for='KeyPress'>Quando a tecla
+    <input name='KeyPress' type='text'>
     for pressionada </label>
 </div>
 
-<div class="Block inputButton" id="e-3">
+<div class='Block inputButton' id='e-3'>
     <p> When start checked </p>
 </div>
 
-<div class="Block inputButton" id="e-4">
-    <label for="selectScenario"> Quando o cenário n°
-    <select name="selectScenario" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        for selecionado </label>
-
+<div class='Block inputButton' id='e-4'>
+    <label for='selectScenario'> Quando o cenário n°
+    <select name='selectScenario' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    for selecionado </label>
 </div>
 
-<div class="Block inputButton" id="e-5">
-    <label for="selectCharacter">Quando o personagem n°
-    <input name="selectCharacter" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='e-5'>
+    <label for='selectCharacter'>Quando o personagem n°
+    <input name='selectCharacter' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
         for selecionado </label>
 </div>
 
 
 
-<div class="Block inputButton" id="s-1">
-    <label for="selectSound">Tocar a música </label>
-    <select name="selectSound">
-        <option value "Sound_1"> 1 </option>
-        <option value "Sound_2"> 2 </option>
-        <option value "Sound3"> 3 </option>
-        <option value "Sound_4"> 4 </option>
-        <option value "Sound_5"> 5 </option>
-        <option value "Sound_6"> 6 </option>
+<div class='Block inputButton' id='s-1'>
+    <label for='selectSound'>Tocar a música </label>
+    <select name='selectSound'>
+        <option value 'Sound_1'> 1 </option>
     </select>
 </div>
 
-<div class="Block inputButton" id="s-2">
-    <label for="SetVolume">Definir volume em
-    <input name="SetVolume" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='s-2'>
+    <label for='SetVolume'>Definir volume em
+    <input name='SetVolume' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
     % </label>
 </div>
 
-<div class="Block inputButton" id="s-3">
-    <label for="modifyVolume">Alterar volume para
-    <input name="modifyVolume" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+<div class='Block inputButton' id='s-3'>
+    <label for='modifyVolume'>Alterar volume para
+    <input name='modifyVolume' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
      </label>
 </div>
