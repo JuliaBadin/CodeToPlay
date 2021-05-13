@@ -204,7 +204,7 @@
             ?>
 
             <div class="title ">
-                <h1 class="text "> CODE TO PLAY</h1>
+                <h1 class="text ">CODE TO PLAY</h1>
             </div>
             <div class="subtitle ">
                 <h5>Divirta-se programando</h5>

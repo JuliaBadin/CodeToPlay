@@ -146,8 +146,9 @@ $("form").on("submit", function(event) {
 
         };*/
 
-//funções Novas com objeto
-function commandAction(Comandos) {
+//funções Novas com objeto 
+//FUNCIONA MAS NÃO DEIXA O PHP TRABALHAR COM O FORM 
+/*function commandAction(Comandos) {
     for (var i = 0; i < Comandos.length; i++) {
         const woody = document.querySelector('#ch'); // id do personagem (exemplo)
         const balao = document.querySelector('.speechBallon'); //balao de fala
@@ -186,7 +187,7 @@ $("form").on("submit", function(event) {
         Comandos.push(comandoItem); // coloca o item recém preenchido na ultima posição no array de objetos comando
     }
     commandAction(Comandos);
-});
+});*/
 
 
 // ******************************************
