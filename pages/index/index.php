@@ -246,7 +246,7 @@
                     <p style="color: #fafafa">
                       <?php
                       //sequência
-                        /*$le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
+                        $le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
                         $verifica_sequencia = mysqli_query($connection, $le_sequencia);
                         $fetch_sequencia = mysqli_fetch_array($verifica_sequencia);
                         $verifica = mysqli_num_rows($verifica_sequencia);
@@ -266,7 +266,7 @@
                           $dados_nfuncoes = mysqli_fetch_array($res_nfuncoes);
                           
                           $n_array = count($array_funcoes) - 1;
-                          $n_funcoes = $dados_nfuncoes['nfuncoes'];
+                          $n_funcoes = $dados_nfuncoes['nfuncoes'];*/
                         
                           while($fetch_funcoes = mysqli_fetch_array($verifica_funcoes)){
                             echo "b ";
@@ -280,7 +280,7 @@
                             }
                             echo "<br>";
                           }
-                        }*/
+                        }
                       ?>
                     </p>
 
