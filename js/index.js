@@ -71,7 +71,8 @@ $('.conteudo div').click(function(event) { //pega o bloco clicado
             }*/
         }
 
-        $(copy).prependTo(".FinalForm"); //adiciona a o div no finalForm
+        $(copy).prependTo(".FinalForm"); //adiciona div no começo do finalForm
+        //$(copy).appendTo($(".FinalForm"));
 
         $(bloco).find(":input").val(''); //zera os valores do clone
     }
@@ -113,61 +114,69 @@ $(".conteudo div input").click(function(event) {
 });
 
 
-
 //funções
-// function teste(command, value) {
-//   console.log("oi");
-//   for(var i=0; i<=command.length; i++){
-//     if (command[i] == "turnRight"){
-//       alert("valor do turnRight: "+value[i]);
-//     }
-//   }
-// }
-//
-// $("form").on("submit", function(event) {
-//     event.preventDefault();
-//     var sequence = $(this).serialize(); //atribuindo todos os comandos pra uma string
-//     sequence = sequence.split("&"); //separando os comandos em um array de string
-//     console.log("array=" + sequence);
-//
-//     var command = [];
-//     var value = [];
-//     for (var i = 0; i < sequence.length; i++) {
-//         var equalIndex = sequence[i].indexOf("=");
-//
-//         console.log("==============");
-//         console.log(sequence[i].replace(/([^\d])+/gim, ''));
-//         console.log("==============");
-//         value.push(sequence[i].replace(/([^\d])+/gim, ''));
-//         command.push(sequence[i].substring(0, equalIndex));
-//      //  teste(command, value);
-//     }
-//       teste(command, value);
-//
-// });
-
-
-//funções Novas com objeto
-function commandAction(Comandos) {
-    for (var i = 0; i < Comandos.length; i++) {
-        if (Comandos[i].nome == "turnRight") {
-            console.log("valor do turnRight: " + Comandos[i].valor);
-            $("#ch").css('transform', 'rotate(' + Comandos[i].valor + 'deg)');
-        } else if (Comandos[i].nome == "turnLeft") {
-            $("#ch").css('transform', 'rotate(-' + Comandos[i].valor + 'deg)');
-        } else if (Comandos[i].nome == "CoordinateX") {
-            console.log("lllllll");
-            $("#ch").css('transform', 'translateX(' + Comandos[i].valor + 'px)');
+/*function teste(command, value) {
+    console.log("oi");
+    for (var i = 0; i <= command.length; i++) {
+        if (command[i] == "turnRight") {
+            alert("valor do turnRight: " + value[i]);
         }
-        // else if(Comandos[i].nome == "CoordinateY"){
-        //   console.log("lllllll");
-        //   $("#ch").css('transform','translateY('+Comandos[i].valor+'px)');
-        // }
     }
 }
 
 $("form").on("submit", function(event) {
-    //event.preventDefault(); COMENTEI PRA TESTE, NÃO FUNCIONA COM
+            event.preventDefault();
+            var sequence = $(this).serialize(); //atribuindo todos os comandos pra uma string
+            sequence = sequence.split("&"); //separando os comandos em um array de string
+            console.log("array=" + sequence);
+
+            var command = [];
+            var value = [];
+            for (var i = 0; i < sequence.length; i++) {
+                var equalIndex = sequence[i].indexOf("=");
+
+                console.log("==============");
+                console.log(sequence[i].replace(/([^\d])+/gim, ''));
+                console.log("==============");
+                value.push(sequence[i].replace(/([^\d])+/gim, ''));
+                command.push(sequence[i].substring(0, equalIndex));
+                //  teste(command, value);
+            }
+            teste(command, value);
+
+        };*/
+
+//funções Novas com objeto
+function commandAction(Comandos) {
+    for (var i = 0; i < Comandos.length; i++) {
+        const woody = document.querySelector('#ch'); // id do personagem (exemplo)
+        const balao = document.querySelector('.speechBallon'); //balao de fala
+        var n = Comandos[i].nome.split("_", 3);
+        var v = Comandos[i].valor;
+
+        if (n[0] == "opacity" || n[1] == "scale(") {
+            woody.style.setProperty(n[0], n[1] + v / 100);
+        } else if (n[0] == "Say") {
+            balao.style.setProperty("display", "block");
+            balao.innerHTML = v;
+            console.log("texto=" + v);
+            setTimeout(
+                function() {
+                    balao.style.setProperty("display", "none");
+                }, 5000);
+        } else if (n[0] == "position") {
+            balao.style.setProperty(v, "0px");
+            console.log("comando=" + Comandos[i].nome + ":" + Comandos[i].valor);
+        } else {
+            woody.style.setProperty(n[0], n[1] + v + n[2]);
+            console.log("comando=" + Comandos[i].nome + ":" + Comandos[i].valor);
+            console.log(n[0], n[1] + v + n[2]);
+        }
+    }
+}
+
+$("form").on("submit", function(event) {
+    event.preventDefault();
     var Comandos = []; //array de objetos
     var sequence = $(this).serialize().split("&");
     for (var i = 0; i < sequence.length; i++) {
@@ -176,22 +185,7 @@ $("form").on("submit", function(event) {
         comandoItem.valor = sequence[i].split("=")[1]; // coloca o atributo de valor no array de objetos comando
         Comandos.push(comandoItem); // coloca o item recém preenchido na ultima posição no array de objetos comando
     }
-
-    function commandAction(Comandos) {
-        for (var i = 0; i < Comandos.length; i++) {
-            const woody = document.querySelector('#ch');
-            var n = Comandos[i].nome.split("_", 3);
-            var v = Comandos[i].valor;
-            woody.style.setProperty(n[0], n[1] + Comandos[0].valor + n[2]);
-            // console.log("p1: "+n[0]);
-            // console.log("valor: "+v);  //mostrar, esconder e mostrar tamanho: funçao separada com /100
-            // console.log("p2: "+n[1]);
-            // console.log("p3: "+n[2]);
-            console.log("comando=" + Comandos[i].nome + ":" + Comandos[i].valor);
-            // console.log(n[0],n[1]+Comandos[0].valor+n[2]);
-        }
-
-    }
+    commandAction(Comandos);
 });
 
 
@@ -199,3 +193,26 @@ $("form").on("submit", function(event) {
 //id aleatório
 // var randomId = Math.floor(Date.now() * Math.random()).toString(36); //gera um id aleatória
 // ;)
+
+// **********************************************
+// funções alternativas
+// for(var i=0; i < Comandos.length; i++){
+//   if (Comandos[i].nome == "turnRight"){
+//     console.log("valor do turnRight: "+ Comandos[i].valor);
+//     $("#ch").css('transform', 'rotate('+Comandos[i].valor+'deg)');
+//   }
+//   else if(Comandos[i].nome == "turnLeft"){
+//     $("#ch").css('transform', 'rotate(-'+Comandos[i].valor+'deg)');
+//   }
+//   else if(Comandos[i].nome == "CoordinateX"){
+//     console.log("lllllll");
+//     $("#ch").css('transform','translateX('+Comandos[i].valor+'px)');
+//   }
+//   else if(Comandos[i].nome == "CoordinateY"){
+//     console.log("lllllll");
+//     $("#ch").css('transform','translateY('+Comandos[i].valor+'px)');
+//   }
+//   else if(Comandos[i].nome == "Say"){
+//     $(".speechBallon").show().delay(5000).fadeOut();
+//   }
+// }

@@ -1,8 +1,8 @@
 <style>
-    body{
-        background: #000;
-        color: #fff;
-    }
+body{
+    background: #000;
+    color: #fff;
+}
 </style>
 
 <?php
@@ -15,6 +15,7 @@
     $verifica = mysqli_num_rows($verifica_sequencia);
 
     if($verifica > 0){
+        //sequência
         $array_funcoes = (explode("\n",$fetch_sequencia['sequencia'])); //tira \n
         $array_funcoes = array_map('trim', $array_funcoes); //tira espaços
         $array_funcoes = array_filter($array_funcoes); //tira elementos nulo ou vazio
@@ -25,10 +26,13 @@
         $fetch_funcoes = mysqli_fetch_array($verifica_funcoes);
 
         while($fetch_funcoes = mysqli_fetch_array($verifica_funcoes)){
-            foreach ($array_funcoes as $i => $value){  
-                if($fetch_funcoes['id_function'] == $value){
-                    //$array_codigo = $fetch_funcoes['code'] . "<br>";
-                    echo htmlentities($fetch_funcoes['code']) . "<br><br>";
+            $array[] = $fetch_funcoes['id_function'];
+            $arraycode[] = $fetch_funcoes['code'];
+        }
+        foreach ($array_funcoes as $i => $value){   
+            foreach ($array as $j => $valorbanco){
+                if($valorbanco == $value){
+                    echo htmlentities($arraycode[$j]) . "<br><br>";;
                 }
             }
         }

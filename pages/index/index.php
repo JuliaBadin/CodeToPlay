@@ -58,16 +58,16 @@
                             </div>
 
                             <div class="Block inputButton" id="c-2">
-                              <label for="turnLeft"> Gire
-                              <input name="turnLeft" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_rotate(-_deg)"> Gire
+                              <input name="transform_rotate(-_deg)" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                               ° a esquerda </label>
                             </div>
 
                             <div class="Block inputButton" id="c-3">
-                              <label for="CoordinateX"> Ir para X =</label>
-                              <input name="CoordinateX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                              <label for="CoordinateY"> e Y = </label>
-                              <input name="CoordinateY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_translateX(_px)"> Ir para X =</label>
+                              <input name="transform_translateX(_px)" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_translateY(_px)"> e Y = </label>
+                              <input name="transform_translateY(_px)" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
 
                             <div class="Block inputButton" id="c-4">
@@ -112,12 +112,14 @@
                               na posição </label>
 
                               <select name="SelectPositionA">
+                              <option value=""></option>
                                 <option value="top">Superior </option>
                                 <option value="bottom">Inferior </option>
                                 <option value="center">Central </option>
                               </select>
 
                               <select name="SelectPositionB">
+                                <option value=""></option>
                                 <option value="left">Esquerda</option>
                                 <option value="right">Direita </option>
                                 <option value="top">Central </option>
@@ -125,17 +127,17 @@
                             </div>
 
                             <div class="Block inputButton" id="c-8">
-                              <label for="MoveX"> Mover X = </label>
-                              <input name="MoveX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                               <label for="MoveY"> e Y = </label>
-                               <input name="MoveY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_translateX(_px)_MoveTo"> Mover X = </label>
+                              <input name="transform_translateX(_px)_MoveTo" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                               <label for="transform_translateY(_px)_MoveTo"> e Y = </label>
+                               <input name="transform_translateY(_px)_MoveTo" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
 
                             <div class="Block inputButton" id="c-9">
-                              <label for="MoveY"> Mover Y = </label>
-                              <input name="MoveY" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                              <label for="MoveX">e X = </label>
-                              <input name="MoveX" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_translateY(_px)_MoveTo2"> Mover Y = </label>
+                              <input name="transform_translateY(_px)_MoveTo2" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                              <label for="transform_translateX(_px)_MoveTo2">e X = </label>
+                              <input name="transform_translateX(_px)_MoveTo2" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
 
                             <div class="Block inputButton" id="c-10">
@@ -145,18 +147,18 @@
                             </div>
 
                             <div class="Block inputButton" id="c-11">
-                              <label for="changeSize"> Mudar tamanho para </label>
-                              <input name="changeSize" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+                              <label for="transform_scale(_)"> Mudar tamanho para </label>
+                              <input name="transform_scale(_)" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
                             </div>
 
                             <div class="Block inputButton" id="c-12">
-                              <label for="Show">Mostrar </label>
-                              <input name="Show" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+                              <label for="opacity__">Mostrar </label>
+                              <input name="opacity__" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
                             </div>
 
                             <div class="Block inputButton" id="c-13">
-                               <label for="Hide">Esconder </label>
-                              <input name="Hide" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
+                               <label for="opacity___2">Esconder </label>
+                              <input name="opacity___2" type="text"onkeypress="return event.charCode >= 48 && event.charCode <= 57">%
                             </div>
 
                           </form>
@@ -239,19 +241,15 @@
                     </div>
                 </section>
                 <section class="game create">
-                  <form action="../../arquivos/sequencia.php" method="get" class="FinalForm">
-                    <input type="hidden" id="retornaID" value="" name="retornaID">
-                    <input type="hidden" id="retornaValores" value="" name="retornaValores">
-                    
-                    <p style="color: #fafafa">
+                  <form action="../../arquivos/sequencia.php" target="withoutatt" method="get" class="FinalForm">  
                       <?php
-                      //sequência
                         $le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
                         $verifica_sequencia = mysqli_query($connection, $le_sequencia);
                         $fetch_sequencia = mysqli_fetch_array($verifica_sequencia);
                         $verifica = mysqli_num_rows($verifica_sequencia);
 
                         if($verifica > 0){
+                          //sequência
                           $array_funcoes = (explode("\n",$fetch_sequencia['sequencia'])); //tira \n
                           $array_funcoes = array_map('trim', $array_funcoes); //tira espaços
                           $array_funcoes = array_filter($array_funcoes); //tira elementos nulo ou vazio
@@ -261,29 +259,21 @@
                           $verifica_funcoes = mysqli_query($connection, $le_funcoes);
                           $fetch_funcoes = mysqli_fetch_array($verifica_funcoes);
 
-                          /*$nfuncoes = "SELECT MAX(id) AS nfuncoes FROM functions";
-                          $res_nfuncoes = mysqli_query($connection, $nfuncoes);
-                          $dados_nfuncoes = mysqli_fetch_array($res_nfuncoes);
-                          
-                          $n_array = count($array_funcoes) - 1;
-                          $n_funcoes = $dados_nfuncoes['nfuncoes'];*/
-                        
                           while($fetch_funcoes = mysqli_fetch_array($verifica_funcoes)){
-                            echo "b ";
-                            foreach ($array_funcoes as $i => $value){  
-                              echo "a ";
-                              if($fetch_funcoes['id_function'] == $value){
-                                $array_codigo = $fetch_funcoes['code'] . "<br>";
-                                  //echo $fetch_funcoes['code'];
-                                  echo "<br>";
+                            $array[] = $fetch_funcoes['id_function'];
+                            $arraycode[] = $fetch_funcoes['code'];
+                          }
+                          foreach ($array_funcoes as $i => $value){   
+                            foreach ($array as $j => $valorbanco){
+                              if($valorbanco == $value){
+                                echo ($arraycode[$j]);
                               }
                             }
-                            echo "<br>";
                           }
                         }
-                      ?>
-                    </p>
-
+                      ?>                    
+                    <input type="hidden" id="retornaID" value="" name="retornaID">
+                    <input type="hidden" id="retornaValores" value="" name="retornaValores">
 
                     <div class="CreateFooter" type="submit">
                       <button type="button" class="edit">
@@ -295,6 +285,7 @@
                    </button>
                  </div>
                   </form>
+                  <iframe src="../../arquivos/sequencia.php" name="withoutatt" style="display: none;"></iframe>
                 </section>
 
                 <section class="view game">
