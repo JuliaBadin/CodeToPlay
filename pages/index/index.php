@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php session_start();
-    include "../padroes/header.php"; ?>
-
+<?php
+    include "../padroes/header.php";
+    include "../login/redirect.php";
+  ?>
 <body>
     <link rel="stylesheet" href="../../css/estilo index.css">
-    <?php
-        include "../../database/connect_db_php.php";
-        include "../login/redirect.php";
-        //print_r($_SESSION);
-    ?>
 
         <section class="options">
             <div class="opt programation-1">
@@ -246,41 +242,45 @@
                   <form action="../../arquivos/sequencia.php" method="get" class="FinalForm">
                     <input type="hidden" id="retornaID" value="" name="retornaID">
                     <input type="hidden" id="retornaValores" value="" name="retornaValores">
-
-                    <div id="selecthide">
-                      <div class="Block inputButton" id="" style="visibility: hidden;">
-                          <label for="selecthide">Selecionar cenário</label>
-                          <select name="selecthide">
-                            <option></option>
-                          </select>
-                      </div>
-                    </div>
                     
                     <p style="color: #fafafa">
                       <?php
-                        $le_sequencia = "SELECT * FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
-                        $verifica = mysqli_query($connection, $le_sequencia);
-                        $fetch_sequencia = mysqli_fetch_array($verifica);
-                      
-                        $funcoes = file_get_contents('funcoes.txt');
-                        //print_r($funcoes);
-                        $array_funcoes = (explode("\n",$fetch_sequencia['sequencia']));
-                        $array_funcoes = array_map('trim', $array_funcoes);
-                        //var_dump($array_funcoes);
-                        $testea = "hoje o dia esta lindo"; 
+                      //sequência
+                        /*$le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
+                        $verifica_sequencia = mysqli_query($connection, $le_sequencia);
+                        $fetch_sequencia = mysqli_fetch_array($verifica_sequencia);
+                        $verifica = mysqli_num_rows($verifica_sequencia);
 
-                        /*foreach ($array_funcoes as $i) {    
-                          //$testa = "/^".$i."$/";
-                          //echo "$testa <br>";
-                          $bordai = "h";
-                          $bordaf = "do";
-                          if(preg_match_all("/^".$bordai."+".$bordaf."$/", $testea, $conteudo[])){
-                            //print_r($conteudo);
-                            //print_r($conteudo);
-                          }
-                        }
-                        var_dump($conteudo);*/
+                        if($verifica > 0){
+                          $array_funcoes = (explode("\n",$fetch_sequencia['sequencia'])); //tira \n
+                          $array_funcoes = array_map('trim', $array_funcoes); //tira espaços
+                          $array_funcoes = array_filter($array_funcoes); //tira elementos nulo ou vazio
+
+                          //funções
+                          $le_funcoes = "SELECT * FROM functions";
+                          $verifica_funcoes = mysqli_query($connection, $le_funcoes);
+                          $fetch_funcoes = mysqli_fetch_array($verifica_funcoes);
+
+                          /*$nfuncoes = "SELECT MAX(id) AS nfuncoes FROM functions";
+                          $res_nfuncoes = mysqli_query($connection, $nfuncoes);
+                          $dados_nfuncoes = mysqli_fetch_array($res_nfuncoes);
+                          
+                          $n_array = count($array_funcoes) - 1;
+                          $n_funcoes = $dados_nfuncoes['nfuncoes'];
                         
+                          while($fetch_funcoes = mysqli_fetch_array($verifica_funcoes)){
+                            echo "b ";
+                            foreach ($array_funcoes as $i => $value){  
+                              echo "a ";
+                              if($fetch_funcoes['id_function'] == $value){
+                                $array_codigo = $fetch_funcoes['code'] . "<br>";
+                                  //echo $fetch_funcoes['code'];
+                                  echo "<br>";
+                              }
+                            }
+                            echo "<br>";
+                          }
+                        }*/
                       ?>
                     </p>
 
@@ -302,10 +302,7 @@
                 </section>
 
                 <section class="code prog">
-                  <p style="color: #fafafa">
-                    <?php echo($fetch_sequencia['sequencia'])?>
-                  </p>
-                  <!--<iframe src=" /*echo($fetch_sequencia['sequencia'])/*?>" style="color: #fafafa;" frameborder="0"></iframe>-->
+                  <iframe src="mostra_codigo.php"></iframe>
                 </section>
 
             </div>

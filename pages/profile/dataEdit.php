@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php session_start();
+<?php
     include "../padroes/header.php"; ?>
 
 <body>
     <link rel="stylesheet" type="text/css" href="../../css/profile.css">
     <?php
-        include "../../database/connect_db_php.php";
         include '../login/redirect.php';
     ?>
      
@@ -110,7 +109,7 @@
                             echo "<div class='alert alert-warning'><b>Erro</b> ao alterar o Perfil!<br>".$altera."</div>";
                         }
                     }
-                }                    
+                }
             ?>
         </div>
 
