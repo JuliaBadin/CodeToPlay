@@ -35,5 +35,5 @@
     }
     
     $_SESSION['idProject'] = $fetch_usuario['idProject'];
-    //echo "<script language='javascript' type='text/javascript'> window.location='../pages/index/index.php'</script>";
+    echo "<script language='javascript' type='text/javascript'> window.location='../pages/index/index.php'</script>";
 ?>

@@ -6,7 +6,7 @@
     include "../login/redirect.php";
   ?>
 <body>
-    <link rel="stylesheet" href="../../css/estilo index.css">
+    <link rel="stylesheet" href="../../css/index.css">
 
         <section class="options">
             <div class="opt programation-1">
@@ -241,7 +241,7 @@
                     </div>
                 </section>
                 <section class="game create">
-                  <form action="../../arquivos/sequencia.php" target="withoutatt" method="get" class="FinalForm">  
+                  <form action="../../arquivos/sequencia.php" method="get" class="FinalForm">  
                       <?php
                         $le_sequencia = "SELECT sequencia, valores_seq FROM project WHERE users_idUser = '{$_SESSION['idUser']}'";
                         $verifica_sequencia = mysqli_query($connection, $le_sequencia);
@@ -285,11 +285,10 @@
                    </button>
                  </div>
                   </form>
-                  <iframe src="../../arquivos/sequencia.php" name="withoutatt" style="display: none;"></iframe>
                 </section>
 
                 <section class="view game">
-                  <img src="../../midia/images/others/personagem.png" id="ch" width="100px" height="100px">
+                  <img src="../../midia/images/others/personagem.png" id="ch">
                 </section>
 
                 <section class="code prog">

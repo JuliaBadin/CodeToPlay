@@ -1,0 +1,527 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ******************* Definiçoes Cabeçalho ******************** */
+
+.cabecalho {
+    width: 100%;
+    /* float: left; */
+    /* padding: 3% 4%; */
+    /* justify-content: center; */
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    float: left;
+}
+
+
+/* ***************Menu******************* */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+
+/* *********************************************** */
+
+
+/* TITULO DO PROJETO DO USUARIO*/
+
+.titulo-proj {
+    font-size: 2.3em;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 6em;
+}
+
+* {
+    transition: all 700ms;
+}
+
+.title-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho {
+    background-image: url("https://i.ibb.co/XtmVrKm/background-header.jpg");
+    padding: 0;
+}
+
+.rodape {
+    background-color: #000;
+    background-image: url("https://i.ibb.co/nny8Nkg/footer.gif");
+    background-size: 30%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    padding: 50px;
+    height: auto;
+    margin: 0;
+    width: 100%;
+}
+
+.cabecalho-container {
+    width: 100%;
+    padding: 50px;
+    background: #101010d4;
+}
+
+.titulo-proj {
+    font-family: 'Press Start 2P', cursive;
+    color: #C4E538;
+    font-size: 30px;
+    padding-top: 50px;
+}
+
+.cabecalho-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-icon {
+    width: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.search-icon svg,
+.user-menu svg {
+    width: 100%;
+    height: 30px;
+    fill: #c4e538;
+}
+
+.new-form {
+    display: flex;
+}
+
+.search {
+    border-bottom: 1px solid #c4e538;
+    color: #c4e538;
+    background: rgba(0, 0, 0, 0);
+    height: 30px;
+    width: 0;
+    transition: all 350ms;
+}
+
+.search::placeholder {
+    color: #c4e538;
+}
+
+.search.open {
+    width: 200px;
+}
+
+.icons-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-menu {
+    width: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.section-title {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 600;
+}
+
+
+/* ********************************************************** */
+
+.centro {
+    width: 100%;
+    margin: 0 auto;
+    background: #111212;
+}
+
+h2 {
+    font-size: 20px;
+    color: #fff;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.wrapper {
+    padding: 0;
+}
+
+.game {
+    width: calc(66.66% - 30px);
+    margin: 0 0 0 30px;
+    border-style: dashed;
+    border-color: #f4f4004a;
+    border-width: 3px;
+    background: #000;
+    height: 70vh;
+    padding: 5px;
+}
+
+.prog {
+    width: 33.33%;
+    background: #000;
+    margin: 0;
+    border-style: dashed;
+    border-color: #f4f4004a;
+    border-width: 3px;
+    height: 70vh;
+    padding: 5px;
+}
+
+.prog:hover,
+.game:hover {
+    box-shadow: 0px 0px 7px #c4e5384d;
+}
+
+
+/* Entrega o Código */
+
+.code {
+    margin: 30px 0 0 30px;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Execução do Jogo */
+
+.view {
+    margin: 30px 0 0 0;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.opt {
+    width: 25%;
+    height: 40px;
+    background-color: #0f1010;
+    border-style: inset;
+    border-color: #62721C;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.opt:hover,
+.item:hover {
+    cursor: pointer;
+}
+
+.item {
+    width: 30%;
+    height: 25px;
+    background-color: #0f1010;
+    border-style: inset;
+    border-color: #62721C;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+.item p {
+    color: #fff;
+}
+
+.main {
+    width: 100%;
+    height: calc(100% - 35px);
+    /* padding: 50px; */
+}
+
+.backgrounds,
+.characters {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+form {
+    /* padding: 10px; */
+    /* display: grid;
+grid-template-rows: repeat(7, 1fr);
+grid-template-columns: repeat(2, 1fr);
+grid-template-areas: "a b" "c d" "e e" "f f" "g g" "h i" "j k" "l m" ; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Block {
+    /* width: 100px; */
+    height: 25px;
+    background-color: purple;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 13px;
+    flex-grow: 1;
+    margin: 5px;
+    text-align: center;
+    /* position: relative; */
+}
+
+.Block input {
+    width: 20px;
+}
+
+.Block:hover {
+    cursor: pointer;
+}
+
+
+/* aumentar as dimenções dos inputs 7 e 10*/
+
+#c-7 {
+    height: 45px;
+    /* width:90%; */
+}
+
+#c-7 input {
+    width: 150px;
+    margin: 3px;
+}
+
+#c-10 input {
+    width: 100px;
+}
+
+.backgrounds,
+.characters {
+    height: 70vh;
+}
+
+
+/* ************** Modal ******************* */
+
+.modal {
+    width: 300px;
+    height: 200px;
+    background-color: #0809d9;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: none;
+    padding: 10px;
+    border-style: dashed;
+    border-width: 2.5px;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    display: none;
+}
+
+.open {
+    display: block;
+}
+
+.text {
+    width: 100%;
+    height: 70%;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    font-family: 'press start 2p';
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.buttons button {
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    border: solid;
+    background-color: #C4E538;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button svg {
+    margin: 2px;
+}
+
+
+/* ******************************************** */
+
+.submit {
+    background-color: transparent;
+}
+
+.create {
+    /*display: flex;
+flex-wrap: wrap;*/
+    position: relative;
+}
+
+.CreateFooter {
+    position: absolute;
+    bottom: 0;
+}
+
+
+/*.FinalForm {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}*/
+
+.edit {
+    height: fit-content;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.view {
+    position: relative;
+}
+
+#ch {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.speechBallon {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    padding: 3px;
+}
+
+
+/* ******************* Definiçoes Mobile ********************* */
+
+@media screen and (max-width: 990px) {
+    .content {
+        display: block;
+        padding: 10px;
+    }
+    .prog,
+    .game {
+        width: 100%;
+        margin: 30px 0;
+        height: 55vh;
+    }
+    .opt {
+        width: 30%;
+        height: 40px;
+    }
+    .Block {
+        height: 20px;
+        transform: scale(0.8);
+        margin: 1.5px;
+        font-size: 13px;
+    }
+    .say {
+        height: 40px;
+    }
+    .opt h2 {
+        line-height: 15px;
+    }
+    .opt {
+        width: 33%;
+    }
+    #c-7 {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .Block {
+        margin: 10px;
+    }
+}
+
+
+/*  Palette
+$black: #000000ff;
+$rich-black-fogra-39: #111212ff;
+$pear: #c4e538ff;
+$dark-olive-green: #62721cff;
+$cultured: #f9f9f9ff;
+$cultured-2: #f1f1f1ff; */
