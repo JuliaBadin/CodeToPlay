@@ -1,3 +1,3 @@
 <?php 
-  $connection = mysqli_connect('remotemysql.com','VGjaX4G78w','JsHMD6UgRW', 'VGjaX4G78w');
+  $connection = mysqli_connect('remotemysql.com','KhpswU5o0x','vx9vl3vwWo', 'KhpswU5o0x');
 ?>
