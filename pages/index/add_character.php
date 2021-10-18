@@ -12,7 +12,7 @@
     if ($res_inserir){
         echo "<script>alert('Funfou!')</script>";
     }else{
-        //echo "<script>alert('Erro ao selecionar plano de fundo!')</script>"; sempre dá erro mesmo que funcione, não sei pq
+        //echo "<script>alert('Erro ao selecionar personagem!')</script>"; sempre dá erro mesmo que funcione, não sei pq
     }
 
     //echo "<script language='javascript' type='text/javascript'> window.location='index.php'</script>";
