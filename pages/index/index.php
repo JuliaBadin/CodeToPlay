@@ -453,7 +453,7 @@
       });
 
       //retorna characters selecionados
-      $('.characters div').click(function() { //ao clicar em um item de plano de fundo
+      $('.characters div').click(function() { //ao clicar em um item de personagem
 
         var idcharacter = $(this).attr('id');
         var namecharacter = $(this).children().attr('id');
@@ -478,8 +478,8 @@
           });
       });
 
-      //retorna characters selecionados
-      $('.sounds div').click(function() { //ao clicar em um item de plano de fundo
+      //retorna sons selecionados
+      $('.sounds div').click(function() { //ao clicar em um item de som
 
         var idsound = $(this).attr('id');
         var namesound = $(this).children().attr('id');
@@ -507,5 +507,4 @@
     
   
 </body>
-
 </html>

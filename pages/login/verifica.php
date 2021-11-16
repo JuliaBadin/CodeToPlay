@@ -2,12 +2,11 @@
     session_start();
 
     include "../../database/connect_db_php.php";
-    //$connection = mysqli_connect($host, $user, $pass, $db);
 
     if($connection){
         //echo "Succesful connection";
     }else{
-        die ("Connection failed" . mysqli_connect_error());
+        die ("Falha na conexão " . mysqli_connect_error());
     }
 
     // Variável que verifica se o usuário está logado
@@ -34,7 +33,7 @@
         // Verifica se a consulta foi realizada com sucesso
         if (!$verifica){
             //printf("Error: %s\n", mysqli_error($connection));
-            echo "<script>alert('Erro verifica')</script>";
+            echo "<script>alert('Erro de verificação')</script>";
         }
         
         // Verifica se a senha do usuário está correta
