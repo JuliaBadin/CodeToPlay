@@ -79,7 +79,7 @@ img {
 /* TITULO DO PROJETO DO USUARIO*/
 
 .titulo-proj {
-    font-size: 2.3em;
+    font-size: 2em;
     text-align: center;
     font-weight: 700;
     padding-top: 6em;
@@ -126,7 +126,6 @@ https://i.ibb.co/C5cSRjf/game-console.png */
 .titulo-proj {
     font-family: 'Press Start 2P', cursive;
     color: #C4E538;
-    font-size: 40px;
     padding-top: 50px;
 }
 

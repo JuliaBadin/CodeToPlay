@@ -64,7 +64,7 @@
                             $consulta = "SELECT * FROM profile WHERE users_idUser = '{$_SESSION['idUser']}'";
                             $verifica = mysqli_query($connection, $consulta);
                             $fetch_usuario = mysqli_fetch_array($verifica);
-                            echo "<h1 class='titulo-proj'>Bem vindo(a)". $fetch_usuario['nickname'] ."</h1>";
+                            echo "<h1 class='titulo-proj' style='font-size: 30px;'>Bem vindo(a) ". $fetch_usuario['nickname'] ."</h1>";
                         ?>
                         
                     </div>
