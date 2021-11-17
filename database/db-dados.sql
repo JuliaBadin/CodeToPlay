@@ -129,10 +129,10 @@ INSERT INTO `sounds`(`name`, `link`) VALUES ('fazenda','../../midia/sounds/farm.
 INSERT INTO `sounds`(`name`, `link`) VALUES ('floresta','../../midia/sounds/forest.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('fantasma','../../midia/sounds/gosth.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('lama','../../midia/sounds/impact_on_dirt.mp3');
-INSERT INTO `sounds`(`name`, `link`) VALUES ('ondas do lago','../../midia/sounds/lakes_waves.mp3');
+INSERT INTO `sounds`(`name`, `link`) VALUES ('ondas do lago','../../midia/sounds/lake_waves.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('miado 1','../../midia/sounds/meow_1.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('miado 2','../../midia/sounds/meow_2.mp3');
-INSERT INTO `sounds`(`name`, `link`) VALUES ('música com atmosfera sinistra','../../midia/sounds/music_dark_atmosphere.mp3');
+INSERT INTO `sounds`(`name`, `link`) VALUES ('música com atmosfera sinistra','../../midia/sounds/music_dark_atmospheric.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('coruja','../../midia/sounds/owl_hoot.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('pirata','../../midia/sounds/pirate.mp3');
 INSERT INTO `sounds`(`name`, `link`) VALUES ('ondas do mar','../../midia/sounds/sea_waves.mp3');
@@ -144,7 +144,125 @@ INSERT INTO `sounds`(`name`, `link`) VALUES ('zumbi 3','../../midia/sounds/zombi
 
 
 
-
 /*          ---------------          OTHERS          ---------------          */
 
 INSERT INTO `users`(`name`, `link`) VALUES ('user_padrao','../../midia/images/users/user_padrao.png');
+
+
+
+/*          ---------------          FUNCTIONS          ---------------          */
+
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-1","<div class='Block inputButton' id='c-1'>
+    <label for='transform_rotate(_deg)'> Gire / Rotate
+    <input name='transform_rotate(_deg)' id='abc' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    ° a direita</label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-2","<div class='Block inputButton' id='c-2'>
+    <label for='turnLeft'> Gire
+    <input name='turnLeft' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    ° a esquerda </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-3","<div class='Block inputButton' id='c-3'>
+    <label for='CoordinateX'> Ir para X =</label>
+    <input name='CoordinateX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='CoordinateY'> e Y = </label>
+    <input name='CoordinateY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-4","<div class='Block inputButton' id='c-4'>
+    <label for='Repeat'>Repetir
+    <input name='Repeat' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    vezes </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-5","<div class='Block inputButton' id='c-5'>
+    <label for='selectScenario'>Selecionar cenário n°</label>
+    <input name='selectScenario' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-6","<div class='Block inputButton' id='c-6'>
+    <label for='selectCharacter'>Selecionar personagem n°</label>
+    <input name='selectCharacter' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-7","<div class='Block inputButton' id='c-7'>
+    <label for='Say'> Dizer
+    <input type='text' name='Say' class='textInput'>
+    na posição </label>
+
+    <select name='SelectPositionA'>
+    <option value='top'>Superior </option>
+    <option value='bottom'>Inferior </option>
+    <option value='center'>Central </option>
+    </select>
+
+    <select name='SelectPositionB'>
+    <option value='left'>Esquerda</option>
+    <option value='right'>Direita </option>
+    <option value='top'>Central </option>
+    </select>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-8","<div class='Block inputButton' id='c-8'>
+    <label for='MoveX'> Mover X = </label>
+    <input name='MoveX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='MoveY'> e Y = </label>
+    <input name='MoveY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-9","<div class='Block inputButton' id='c-9'>
+    <label for='MoveY'> Mover Y = </label>
+    <input name='MoveY' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <label for='MoveX'>e X = </label>
+    <input name='MoveX' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-10","<div class='Block inputButton' id='c-10'>
+    <label for='If'>Se
+    <input class='increaseWidth' name='If' placeholder='nº da condição' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    faça </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-11","<div class='Block inputButton' id='c-11'>
+    <label for='changeSize'> Mudar tamanho para </label>
+    <input name='changeSize' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-12","<div class='Block inputButton' id='c-12'>
+    <label for='Show'>Mostrar </label>
+    <input name='Show' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("c-13","<div class='Block inputButton' id='c-13'>
+    <label for='Hide'>Esconder </label>
+    <input name='Hide' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>%
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("e-1","<div class='Block inputButton' id='e-1'>
+    <label for='Wait'>Espere
+    <input name='Wait' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    segundos </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("e-2","<div class='Block inputButton' id='e-2'>
+    <label for='KeyPress'>Quando a tecla
+    <input name='KeyPress' type='text'>
+    for pressionada </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("e-3","<div class='Block inputButton' id='e-3'>
+    <p> When start checked </p>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("e-4","<div class='Block inputButton' id='e-4'>
+    <label for='selectScenario'> Quando o cenário n°
+    <select name='selectScenario' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    for selecionado </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("e-5","<div class='Block inputButton' id='e-5'>
+    <label for='selectCharacter'>Quando o personagem n°
+    <input name='selectCharacter' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+        for selecionado </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("s-1","<div class='Block inputButton' id='s-1'>
+    <label for='selectSound'>Tocar a música </label>
+    <select name='selectSound'>
+        <option value 'Sound_1'> 1 </option>
+    </select>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("s-2","<div class='Block inputButton' id='s-2'>
+    <label for='SetVolume'>Definir volume em
+    <input name='SetVolume' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    % </label>
+</div>");
+INSERT INTO `functions`(`id_function`, `code`) VALUES ("s-3","<div class='Block inputButton' id='s-3'>
+    <label for='modifyVolume'>Alterar volume para
+    <input name='modifyVolume' type='text' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+     </label>
+</div>");

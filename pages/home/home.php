@@ -204,7 +204,7 @@
             ?>
 
             <div class="title ">
-                <h1 class="text ">CODE TO PLAY</h1>
+                <h1 class="text">CODE TO PLAY</h1>
             </div>
             <div class="subtitle ">
                 <h5>Divirta-se programando</h5>
@@ -212,15 +212,14 @@
         </div>
 
 
-        <div class="footer ">
-            <div class="about ">
+        <div class="footer">
+            <div class="about">
                 <h2> Sobre o Projeto... </h2>
-                <p>O projeto Code to Play tem como objetivo principal incentivar e promover a aprendizagem da programação de computadores, bem como do uso de suas estruturas lógicas, tal abordagem justifica-se pela importância que tem o conhecimento tecnológico,
-                    com foco na infância e juventude, onde começa a se desenhar o caminho que será seguido pelos jovens e pelas crianças. Apresentá-los ao mundo da programação e como são implementadas feitas as tecnologias usadas em seu cotidiano, mostra
-                    que há um vasto leque de opções a serem seguidas. Onde qualquer um pode desenvolver suas próprias ideias e apresentá-las ao mundo como soluções de diversos tipos de problemas. E assim, fazer a diferença.
-                </p>
+                <p style="text-indent: 2em;">A base da programação é composta por elementos lógicos necessários para aprender qualquer linguagem e esses elementos podem ser difíceis de serem introduzidos para as crianças. Nesse contexto, o ensino através da criação de jogos tornaria o aprendizado mais simples, divertido e intuitivo.</p>
+                <p style="text-indent: 2em;">Conhecer os principais conceitos da programação, além de raciocínio matemático, agrega na criatividade, resolução de problemas, e na organização de ideias e pensamentos, que são habilidades essenciais nos dias de hoje. Sendo inseridos nesse mundo desde cedo, os jovens conseguirão desenvolver essas habilidades de forma prática.</p>
             </div>
             <div class="video ">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SFXCcfqq_XA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 </body>

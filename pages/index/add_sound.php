@@ -5,8 +5,8 @@
     $idtoadd = $_POST['idsound'];
     $nametoadd = $_POST['namesound'];
 
-    $insert = "INSERT INTO project_has_sounds(project_idProject, sounds_idSound, sounds_NameSound)
-    VALUES('".$_SESSION['idProject']."','". $idtoadd ."','". $nametoadd . "')";
+    $insert = "INSERT INTO `project_has_sounds` (`project_idProject`, `sounds_idSound`, `sounds_NameSound`)
+    VALUES(".$_SESSION['idProject'].",". $idtoadd .",'". $nametoadd . "')";
     
     $res_inserir = mysqli_query($connection, $insert);
     if ($res_inserir){

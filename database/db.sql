@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idCharacter`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `functions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -69,21 +69,21 @@ CREATE TABLE IF NOT EXISTS `scenarios` (
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idScenario`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `sounds` (
   `idSound` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idSound`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`iduser`);
@@ -92,13 +92,13 @@ ALTER TABLE `project`
   ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`iduser`);
 
 ALTER TABLE `project_has_characters`
-  ADD CONSTRAINT `project_has_characters_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
-  ADD CONSTRAINT `project_has_characters_ibfk_2` FOREIGN KEY (`characters_idCharacter`) REFERENCES `characters` (`idcharacter`);
+  ADD CONSTRAINT `project_has_characters_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idProject`),
+  ADD CONSTRAINT `project_has_characters_ibfk_2` FOREIGN KEY (`characters_idCharacter`) REFERENCES `characters` (`idCharacter`);
 
 ALTER TABLE `project_has_scenarios`
-  ADD CONSTRAINT `project_has_scenarios_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
-  ADD CONSTRAINT `project_has_scenarios_ibfk_2` FOREIGN KEY (`scenarios_idScenario`) REFERENCES `scenarios` (`idscenario`);
+  ADD CONSTRAINT `project_has_scenarios_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idProject`),
+  ADD CONSTRAINT `project_has_scenarios_ibfk_2` FOREIGN KEY (`scenarios_idScenario`) REFERENCES `scenarios` (`idScenario`);
 
 ALTER TABLE `project_has_sounds`
-  ADD CONSTRAINT `project_has_sounds_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idproject`),
-  ADD CONSTRAINT `project_has_sounds_ibfk_2` FOREIGN KEY (`sounds_idSound`) REFERENCES `sounds` (`idsound`);
+  ADD CONSTRAINT `project_has_sounds_ibfk_1` FOREIGN KEY (`project_idProject`) REFERENCES `project` (`idProject`),
+  ADD CONSTRAINT `project_has_sounds_ibfk_2` FOREIGN KEY (`sounds_idSound`) REFERENCES `sounds` (`idSound`);
